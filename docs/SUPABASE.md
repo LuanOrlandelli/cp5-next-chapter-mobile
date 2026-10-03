@@ -16,7 +16,7 @@ EXPO_PUBLIC_SUPABASE_URL=https://SEU-PROJETO.supabase.co
 EXPO_PUBLIC_SUPABASE_ANON_KEY=SUA_CHAVE_PUBLICA_ANON_OU_PUBLISHABLE
 ```
 
-Obtenha URL e chave pública no painel Connect/API do projeto. Nunca usar senha Postgres, secret key ou service_role no aplicativo. `.env` está ignorado pelo Git. As duas variáveis são obrigatórias para ativar o modo Supabase; sem ambas o modo de demonstração permanece local.
+Obtenha URL e chave pública no painel Connect/API do projeto. Nunca usar senha Postgres, secret key ou service_role no aplicativo. `.env` está ignorado pelo Git. As duas variáveis são obrigatórias para ativar o modo Supabase; sem nenhuma variável o modo de demonstração permanece local; configuração parcial ou inválida gera erro.
 
 ## 4. Reiniciar Expo
 

@@ -47,6 +47,7 @@ test('erro de armazenamento é exibido e permite tentar novamente', async ({ pag
  await page.addInitScript(() => localStorage.setItem('next-chapter:demo:v1','{}'));
  await page.goto('/'); await page.getByRole('button',{name:'Começar',exact:true}).click();
  await expect(page.getByText('Dados locais inválidos. Limpe os dados do aplicativo para iniciar novamente.')).toBeVisible();
+ await page.getByRole('button',{name:'Perfil',exact:true}).click(); await expect(page.getByText('Dados indisponíveis',{exact:true})).toBeVisible(); await page.getByRole('button',{name:'Entendi'}).click();
  await page.evaluate(() => localStorage.removeItem('next-chapter:demo:v1'));
  await page.getByRole('button',{name:'Tentar novamente',exact:true}).click();
  await expect(page.getByRole('button',{name:/Chanel Classic Flap,/})).toBeVisible();

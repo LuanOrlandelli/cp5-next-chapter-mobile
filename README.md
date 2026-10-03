@@ -2,7 +2,7 @@
 
 **Toda peça merece um próximo capítulo.** Aplicativo acadêmico de compra, venda e troca de bolsas de luxo seminovas, construído em **React Native + Expo + TypeScript**. Entrega dos Checkpoints 4 e 5: seis telas inspiradas nas referências do Figma, protótipo navegável, dados mockados persistidos, integração Supabase implementada, testes e evidências de simulação no navegador Windows.
 
-> Status: protótipo local implementado e testado. Configuração e comprovação de conexão a um Supabase real e publicação do repositório no GitHub dependem de acesso do grupo; consultar o checklist antes da entrega. O logo foi reconstruído a partir da captura e precisa do arquivo original para fidelidade exata.
+> Status: protótipo local implementado e testado. Repositório publicado no GitHub. Configuração e comprovação de conexão a um Supabase real dependem de acesso do grupo; consultar o checklist antes da entrega. O logo foi reconstruído a partir da captura e precisa do arquivo original para fidelidade exata.
 
 ## Integrantes
 | Nome | RM |
@@ -98,7 +98,13 @@ docs/                      CP4, CP5, roteiros e evidências
 ## Referência visual
 [Figma fornecido pelo grupo](https://www.figma.com/design/JpMUPu4txwKTUpDvjHxelR/Next-Chapter-%E2%80%94-App-Prototype--c%C3%B3pia-?node-id=0-1). A implementação usa as duas capturas fornecidas, pois o arquivo não pôde ser acessado. Fontes e tokens são aproximações; o símbolo não é o SVG original. O programa recebeu controles funcionais na área inferior originalmente vazia.
 
-## Publicar no GitHub
+## Repositório GitHub
+
+[CP5 Next Chapter Mobile](https://github.com/LuanOrlandelli/cp5-next-chapter-mobile) — repositório privado publicado na conta LuanOrlandelli. Conceder acesso ao professor/grupo ou ajustar a visibilidade na conta antes da avaliação. Código, README, SQL, testes e evidências estão versionados.
+
+Para atualizar a publicação: executar git add ., git commit e git push. As instruções abaixo também permitem publicar uma cópia em outra conta.
+
+### Publicar uma cópia
 O Git local deve ser inicializado na pasta deste README. Criar um repositório vazio na conta do grupo, obter a URL e executar:
 
 ```bash
@@ -106,7 +112,7 @@ git remote add origin https://github.com/SEU-USUARIO/next-chapter-mobile.git
 git push -u origin main
 ```
 
-Se ainda não houver commit local, executar antes: `git add .` e `git commit -m "feat: prototipo Next Chapter CP4 e CP5"`. Depois conferir no GitHub o README, os documentos, os SQL e `docs/evidence`. Não versionar node_modules, .env ou pastas de build/teste temporárias. A publicação remota não foi presumida.
+Se ainda não houver commit local, executar antes: `git add .` e `git commit -m "feat: prototipo Next Chapter CP4 e CP5"`. Depois conferir no GitHub o README, os documentos, os SQL e `docs/evidence`. Não versionar node_modules, .env ou pastas de build/teste temporárias. A publicação na conta indicada foi realizada e verificada.
 
 ## Conferência para entrega
-[Checklist CP4/CP5 com evidências e pendências](docs/CHECKLIST-ENTREGA.md). Concluir configuração Supabase real e publicação GitHub antes de apresentar esses itens como entregues. O projeto é acadêmico; não representa uma operação comercial ativa.
+[Checklist CP4/CP5 com evidências e pendências](docs/CHECKLIST-ENTREGA.md). Concluir a configuração Supabase real e conceder acesso ao repositório para o professor antes da entrega. O projeto é acadêmico; não representa uma operação comercial ativa.

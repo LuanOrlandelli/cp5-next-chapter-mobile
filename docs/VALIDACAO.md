@@ -12,6 +12,7 @@ Ambiente efetivamente usado: Windows, Node 24.13.0, npm 11.6.2, Expo SDK 57 e Ch
 | Exportação web (`npm run build:web`) | Build gerado em dist |
 | Capturas do navegador | 8 imagens PNG |
 | Vídeos de execução | 3 arquivos WebM preservados |
+| Repositório GitHub | Publicado em https://github.com/LuanOrlandelli/cp5-next-chapter-mobile (privado) |
 | Supabase remoto | Pendente: projeto/variáveis não fornecidos |
 | Android/iOS | Não executado; simulação da entrega feita no navegador |
 
@@ -46,3 +47,5 @@ Vídeos: [navegação](evidence/09-navegacao.webm), [compra](evidence/10-compra.
 
 ## Limites de fidelidade
 As capturas originais serviram de referência. Logo reconstruído em SVG, Inter e cores aproximadas; equivalência visual exata depende dos assets/tokens originais do Figma. O programa ganhou controles funcionais no rodapé e há telas complementares de checkout/perfil. Não foi possível realizar comparação automatizada de pixels com as capturas originais, que não estavam disponíveis como arquivos no workspace.
+## Dependências
+A auditoria npm desta instalação apontou 23 alertas (7 moderados e 16 altos) em dependências. A compatibilidade Expo foi aprovada; os alertas de segurança não são eliminados por essa checagem. Revisar as dependências antes de usar o projeto em produção.
