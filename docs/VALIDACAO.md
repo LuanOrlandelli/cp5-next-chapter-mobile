@@ -1,4 +1,4 @@
-# Validação — 02/10/2026
+# Validação — 02 e 03/10/2026
 
 Ambiente efetivamente usado: Windows, Node 24.13.0, npm 11.6.2, Expo SDK 57 e Chromium via Playwright. Dados locais mockados. Viewport principal: 390 × 844; responsividade adicional em 360 e 1280 px.
 
