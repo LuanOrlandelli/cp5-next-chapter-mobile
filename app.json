@@ -1,0 +1,10 @@
+{
+  "expo": {
+    "name": "Next Chapter", "slug": "next-chapter-mobile", "version": "1.0.0",
+    "orientation": "portrait", "userInterfaceStyle": "light",
+    "ios": { "supportsTablet": true },
+    "android": { "package": "com.nextchapter.mobile", "blockedPermissions": ["android.permission.RECORD_AUDIO"] },
+    "web": { "bundler": "metro", "name": "Next Chapter", "description": "Toda peça merece um próximo capítulo." },
+    "plugins": [["expo-image-picker", { "photosPermission": "Selecione fotos da sua bolsa para enviar à curadoria.", "microphonePermission": false, "cameraPermission": false }]]
+  }
+}

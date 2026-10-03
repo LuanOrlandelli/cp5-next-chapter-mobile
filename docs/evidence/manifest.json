@@ -1,0 +1,12 @@
+{
+  "generatedAt": "2026-10-03T01:21:41.443Z",
+  "platform": "win32",
+  "browser": "Chromium / Playwright",
+  "viewport": {
+    "width": 390,
+    "height": 844
+  },
+  "mode": "Local",
+  "screens": 8,
+  "videos": 3
+}

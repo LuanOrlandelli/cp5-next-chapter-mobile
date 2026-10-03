@@ -1,0 +1,9 @@
+export type Condition = 'Novo' | 'Excelente' | 'Bom' | 'Usado';
+export type Screen = 'splash' | 'home' | 'detail' | 'sell' | 'trade' | 'program' | 'profile' | 'checkout';
+export type Product = { id: string; brand: string; model: string; detail: string; price: number; condition: Condition; year: number; size: string; category: string; authenticated: boolean };
+export type EligiblePiece = { id: string; name: string; credit: number };
+export type Photo = { uri: string; base64?: string; mimeType?: string };
+export type Sale = { id: string; brandModel: string; condition: Condition; photos: string[]; estimate: [number, number]; status: 'Em curadoria'; createdAt: string };
+export type Order = { id: string; productId: string; productName: string; total: number; creditUsed: number; paid: number; createdAt: string };
+export type Exchange = { id: string; pieceId: string; pieceName: string; status: 'Solicitada'; createdAt: string };
+export type DemoState = { version: 1; credit: number; eligible: EligiblePiece[]; favorites: string[]; sales: Sale[]; orders: Order[]; exchanges: Exchange[] };

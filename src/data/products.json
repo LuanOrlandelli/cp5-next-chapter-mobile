@@ -1,0 +1,6 @@
+[
+ {"id":"chanel-classic","brand":"Chanel","model":"Classic Flap","detail":"Classic Flap Medium — Caviar","price":890000,"condition":"Excelente","year":2021,"size":"M","category":"Bolsas","authenticated":true},
+ {"id":"lv-neverfull","brand":"Louis Vuitton","model":"Neverfull MM","detail":"Neverfull MM — Monogram","price":540000,"condition":"Excelente","year":2022,"size":"M","category":"Bolsas","authenticated":true},
+ {"id":"dior-lady","brand":"Dior","model":"Lady Dior","detail":"Lady Dior Medium — Cannage","price":920000,"condition":"Bom","year":2020,"size":"M","category":"Bolsas","authenticated":true},
+ {"id":"gucci-marmont","brand":"Gucci","model":"Marmont Small","detail":"GG Marmont Small — Matelassé","price":410000,"condition":"Excelente","year":2023,"size":"P","category":"Bolsas","authenticated":true}
+]

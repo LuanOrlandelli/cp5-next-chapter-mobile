@@ -1,0 +1,17 @@
+import test from 'node:test';
+import assert from 'node:assert/strict';
+import { checkoutAmounts, estimate, filterProducts, initialState, money, validateSale, validateState } from '../src/domain/rules';
+import fixtures from '../src/data/products.json';
+import type { Product } from '../src/types';
+test('crédito parcial: R$ 1.240 numa peça de R$ 8.900', () => assert.deepEqual(checkoutAmounts(890000,124000,true), { total:890000,creditUsed:124000,paid:766000,remainingCredit:0 }));
+test('crédito maior que preço preserva o restante', () => assert.deepEqual(checkoutAmounts(410000,500000,true), { total:410000,creditUsed:410000,paid:0,remainingCredit:90000 }));
+test('não usar crédito mantém o saldo', () => assert.equal(checkoutAmounts(410000,124000,false).remainingCredit,124000));
+test('crédito zero não gera desconto', () => assert.equal(checkoutAmounts(410000,0,true).paid,410000));
+test('valores inválidos são rejeitados', () => { assert.throws(() => checkoutAmounts(-1,0,true)); assert.throws(() => checkoutAmounts(100,-1,true)); assert.throws(() => checkoutAmounts(10.2,0,true)); });
+test('estimativa aumenta com conservação e corresponde ao Figma', () => { assert.deepEqual(estimate('Excelente'),[350000,420000]); assert.ok(estimate('Novo')[0] > estimate('Excelente')[0]); assert.ok(estimate('Bom')[0] < estimate('Excelente')[0]); assert.ok(estimate('Usado')[1] < estimate('Bom')[1]); });
+test('venda exige identificação e 4 a 8 fotos', () => { assert.ok(validateSale('',4)); assert.ok(validateSale('Prada',3)); assert.ok(validateSale('Prada',9)); assert.equal(validateSale('Prada Re-Edition',4),null); });
+test('busca ignora caixa, espaços e acentuação', () => { assert.equal(filterProducts(fixtures as Product[],'  CHANEL ').length,1); assert.equal(filterProducts(fixtures as Product[],'matelasse')[0].brand,'Gucci'); assert.equal(filterProducts(fixtures as Product[],'inexistente').length,0); });
+test('favoritos restringem resultados', () => assert.equal(filterProducts(fixtures as Product[],'',['lv-neverfull'])[0].brand,'Louis Vuitton'));
+test('fixtures possuem IDs únicos, preços válidos e autenticação simulada', () => { assert.equal(new Set(fixtures.map(p => p.id)).size,fixtures.length); fixtures.forEach(p => { assert.ok(Number.isSafeInteger(p.price) && p.price > 0); assert.ok(p.authenticated); }); });
+test('estado inicial independente entre sessões', () => { const first=initialState(); first.orders.push({} as never); assert.equal(initialState().orders.length,0); assert.ok(validateState(initialState())); assert.equal(validateState({}),false); });
+test('formatação monetária brasileira', () => assert.equal(money(890000),'R$ 8.900'));
