@@ -54,3 +54,6 @@ A auditoria npm desta instalação apontou 23 alertas (7 moderados e 16 altos) e
 Executado npm run test:supabase contra o projeto configurado no .env. Código de saída 0. Aprovados: sessões anônimas, catálogo e carteiras, favoritos isolados por RLS, curadoria com estimativa recalculada, uploads privados, compra idempotente, crédito persistente, troca e rejeição de duplicatas, isolamento de pedidos. O teste criou duas sessões independentes e registros fictícios no banco. Não alterou o saldo da sessão usada no navegador pelo grupo. URL e chaves não foram incluídas no relatório.
 
 [Saída do teste](evidence/12-supabase-integration.txt). Falta anexar captura do Table Editor para apresentação.
+
+## Fotos no catálogo — 04/10/2026
+A pedido do grupo, foram adicionadas fotos ilustrativas locais para Chanel, Louis Vuitton, Dior e Gucci no catálogo, detalhe e checkout. Fontes em assets/products/README.md. Conferência visual de docs/evidence/02-home.png aprovada; TypeScript e os seis testes E2E aprovados após a alteração. Build web inclui as quatro imagens. O teste usa localhost na porta 8082, isolado dos dados e do servidor Supabase do grupo.

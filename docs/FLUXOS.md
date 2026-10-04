@@ -41,4 +41,4 @@ flowchart TD
 - Botão Voltar usa uma pilha de telas; hardware Back do Android usa a mesma pilha.
 - Recarregar inicia na Splash; os dados permanecem armazenados.
 
-Todas e Bolsas exibem o mesmo catálogo nesta entrega porque as quatro peças pertencem à categoria Bolsas. Os blocos areia são placeholders deliberados das referências; fotos reais são selecionadas apenas no fluxo de venda.
+Todas e Bolsas exibem o mesmo catálogo nesta entrega porque as quatro peças pertencem à categoria Bolsas. O catálogo, o detalhe e o checkout usam fotos ilustrativas locais dos quatro produtos; o fluxo de venda aceita fotos da galeria.

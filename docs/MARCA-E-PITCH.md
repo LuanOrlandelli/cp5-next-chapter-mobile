@@ -4,7 +4,7 @@
 **Next Chapter**: a peça inicia um próximo capítulo com outra pessoa. A marca une moda circular, continuidade da história e uma linguagem visual editorial.
 
 ## Identidade
-Referências: seis telas fornecidas pelo grupo em capturas do Figma. A identidade usa fundo oliva para a Splash e a assinatura, rosa para chamadas, creme para conteúdo e marrom para contrastes. Fotografias permanecem representadas por blocos areia, exatamente como nas capturas.
+Referências: seis telas fornecidas pelo grupo em capturas do Figma. A identidade usa fundo oliva para a Splash e a assinatura, rosa para chamadas, creme para conteúdo e marrom para contrastes. Em 04/10/2026, o grupo solicitou substituir os blocos areia do catálogo por fotos ilustrativas. As fotos locais também aparecem em detalhe e checkout.
 
 | Token | Cor | Aplicação |
 | --- | --- | --- |

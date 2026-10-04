@@ -41,7 +41,7 @@ Para emulador Android iniciado no Android Studio: `npm run android`. Para aparel
 - Checkout simulado com uso parcial de crédito, saldo atualizado e pedido persistido.
 - Supabase: catálogo, carteira, favoritos, curadorias, pedidos, trocas e fotos em Storage privado.
 
-As áreas areia das fotos do catálogo reproduzem os placeholders das capturas. Os selos de autenticação, preços, estimativas e peças são dados de demonstração. Solicitar troca não concede crédito automaticamente; não há gateway de pagamento, frete ou backend de curadoria.
+Fotos ilustrativas dos quatro produtos foram adicionadas ao catálogo, detalhe e checkout a pedido do grupo. Fontes em assets/products/README.md. Os selos de autenticação, preços, estimativas e peças são dados de demonstração. Solicitar troca não concede crédito automaticamente; não há gateway de pagamento, frete ou backend de curadoria.
 
 ## Banco de dados — Supabase
 1. Criar um projeto Supabase de teste.
