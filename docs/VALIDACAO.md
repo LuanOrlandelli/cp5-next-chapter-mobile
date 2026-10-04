@@ -53,7 +53,7 @@ A auditoria npm desta instalação apontou 23 alertas (7 moderados e 16 altos) e
 ## Integração real — 04/10/2026
 Executado npm run test:supabase contra o projeto configurado no .env. Código de saída 0. Aprovados: sessões anônimas, catálogo e carteiras, favoritos isolados por RLS, curadoria com estimativa recalculada, uploads privados, compra idempotente, crédito persistente, troca e rejeição de duplicatas, isolamento de pedidos. O teste criou duas sessões independentes e registros fictícios no banco. Não alterou o saldo da sessão usada no navegador pelo grupo. URL e chaves não foram incluídas no relatório.
 
-[Saída do teste](evidence/12-supabase-integration.txt). Falta anexar captura do Table Editor para apresentação.
+[Saída do teste](evidence/12-supabase-integration.txt). Capturas do Table Editor adicionadas pelo grupo em 04/10/2026: [produtos](../assets/evidencias/12-supabase-products.png), [vendas](../assets/evidencias/13-supabase-sales.png) e [trocas](../assets/evidencias/14-supabase-exchanges.png).
 
 ## Fotos no catálogo — 04/10/2026
 A pedido do grupo, foram adicionadas e padronizadas fotos ilustrativas locais para Chanel, Louis Vuitton, Dior, Gucci, Speedy e Selma. As quatro primeiras aparecem no catálogo, detalhe e checkout; as duas últimas no Trade-in e no detalhe de troca. As versões padronizadas foram editadas com IA; referências e procedimento em [assets/products/README.md](../assets/products/README.md).
@@ -68,5 +68,9 @@ A pedido do grupo, foram adicionadas e padronizadas fotos ilustrativas locais pa
 
 Os testes de interface usam dados locais e porta temporária configurável por `E2E_PORT`, normalmente 8082; o uso pessoal do app permanece em `localhost:8081`. O roteiro manual inclui a galeria, os cards e a privacidade, mas não equivale a comprovação de execução em Android/iOS.
 
-## Evidências finais ainda a completar
-Os oito PNG e três vídeos existentes comprovam a execução, mas não cobrem integralmente os últimos cards e as duas telas de detalhes. Atualizar a seleção de prints/vídeos e anexar a captura do Table Editor antes de finalizar a entrega. A documentação não considera essa renovação de evidências concluída.
+## Prints finais conferidos — 04/10/2026
+Os 15 PNG adicionados pelo grupo em `assets/evidencias` foram abertos e conferidos: dez telas, modal de nova troca, três tabelas do Supabase e Storage. A lista completa está no [README](../README.md#prints-da-versão-final).
+
+Os cards atuais e as galerias estão registrados. A venda `muu9babb-t4r6gcs6` corresponde ao Perfil, aos detalhes da Prada e à tabela `sales`; a solicitação da Speedy corresponde às telas e à tabela `exchanges`. O Storage mostra os quatro arquivos de outro envio de teste, `muuahn7r-ue4lhmai`, também presente no banco. Não se afirma que essas imagens do Storage sejam da Prada.
+
+O formulário de venda foi capturado vazio; o checkout, antes da confirmação e com crédito desativado; a sessão do Perfil não tem compra registrada. Os testes e vídeos anteriores comprovam os fluxos de envio e compra. O vídeo final deve complementar os prints mostrando preenchimento, uso de crédito, persistência e navegação. O link externo do vídeo e a conferência de acesso ao Figma/GitHub permanecem pendentes.

@@ -19,7 +19,7 @@
 | Ambiente de testes (15%) | Domínio, SQL, Playwright e roteiro manual | Configurado e executado |
 | Documentação atualizada (20%) | README, FLUXOS, DECISOES-TECNICAS, TESTES-MANUAIS | Implementado e publicado |
 | Integração de banco | Supabase client, schema, RLS, funções, seed, Storage | Implementada e verificada no Supabase real em 04/10/2026 |
-| Simulação funcionando (20%) | Chromium no Windows; oito PNG e três WebM existentes | Comprovada; completar evidências da versão final |
+| Simulação funcionando (20%) | Quinze prints manuais em assets/evidencias e evidências automatizadas anteriores | Prints atuais conferidos; link do vídeo final pendente |
 
 ## Antes de entregar
 
@@ -27,11 +27,13 @@ Nomes e links das 15 capturas finais, além dos campos de vídeo/Figma: [Prints 
 
 - [x] Configurar o projeto Supabase e habilitar sessão anônima.
 - [x] Executar `npm run test:supabase` com credenciais públicas de um projeto dedicado — aprovado em 04/10/2026.
-- [ ] Anexar captura do Table Editor demonstrando registros persistidos no Supabase.
-- [ ] Atualizar e conferir prints/vídeos dos cards rosas, galeria de venda, detalhes e histórico de trocas da versão final.
+- [x] Anexar capturas do Table Editor demonstrando registros persistidos no Supabase — products, sales e exchanges; Storage também incluído.
+- [x] Atualizar e conferir os 15 prints da versão atual, incluindo cards rosas, galeria de venda, detalhes e histórico de trocas — 04/10/2026.
+- [ ] Completar o vídeo final com os fluxos atuais e preencher seu link no README.
 - [x] Publicar e conferir o repositório GitHub: https://github.com/LuanOrlandelli/cp5-next-chapter-mobile.
 - [ ] Conceder acesso ao repositório privado para o professor/grupo.
-- [ ] Preencher e testar os links finais de vídeo e Figma no README com permissão de visualização para o professor.
+- [x] Preencher o link atualizado do Figma no README — 04/10/2026.
+- [ ] Testar os links finais de vídeo e Figma com permissão de visualização para o professor; acesso do Figma ainda não confirmado.
 - [ ] Substituir logo reconstruído por export original e confirmar tokens/fontes caso seja exigida igualdade visual exata.
 - [x] Documentar escopo, marca, pitch, arquitetura e navegação.
 - [x] Atualizar documentação com dez telas, botão Realizar uma nova troca, cards, fotos privadas, sessão anônima e limitações de curadoria — 04/10/2026.

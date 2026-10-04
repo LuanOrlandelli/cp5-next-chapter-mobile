@@ -107,7 +107,7 @@ docs/                      CP4, CP5, roteiros e evidências
 ```
 
 ## Referência visual
-[Figma fornecido pelo grupo](https://www.figma.com/design/JpMUPu4txwKTUpDvjHxelR/Next-Chapter-%E2%80%94-App-Prototype--c%C3%B3pia-?node-id=0-1). A implementação usa as duas capturas fornecidas, pois o arquivo não pôde ser acessado. Fontes e tokens são aproximações; o símbolo não é o SVG original. Alterações solicitadas pelo grupo: fotos padronizadas, cards rosas de vendas e trocas, galerias de detalhes e histórico no Exchange Program. O ícone vetorial de troca fica dentro do círculo oliva e o botão principal diz “Realizar uma nova troca”.
+[Figma fornecido pelo grupo](https://www.figma.com/design/JpMUPu4txwKTUpDvjHxelR/Next-Chapter-%E2%80%94-App-Prototype?node-id=0-1&t=NfwugDCNd9QBRdyS-1), atualizado em 04/10/2026. A implementação usa as duas capturas fornecidas, pois o arquivo não pôde ser acessado pela ferramenta. Fontes e tokens são aproximações; o símbolo não é o SVG original. Alterações solicitadas pelo grupo: fotos padronizadas, cards rosas de vendas e trocas, galerias de detalhes e histórico no Exchange Program. O ícone vetorial de troca fica dentro do círculo oliva e o botão principal diz “Realizar uma nova troca”.
 
 ## Repositório GitHub
 
@@ -130,7 +130,7 @@ Se ainda não houver commit local, executar antes: `git add .` e `git commit -m 
 
 ## Prints da versão final
 
-Salve os prints em **`assets/evidencias/`**, dentro deste projeto, usando os nomes abaixo. Os links estão preparados para a entrega: **os arquivos desta lista ainda precisam ser adicionados**. Quando você salvar os PNG, fizer commit e push, os links passarão a abrir as imagens no GitHub. Não crie arquivos vazios para preencher a lista.
+Os **15 prints foram adicionados e conferidos em 04/10/2026** na pasta **`assets/evidencias/`**. Os links abaixo abrem as capturas da versão atual do aplicativo e do Supabase. Para substituir alguma captura, salve um PNG com o mesmo nome e faça commit/push.
 
 Use o app em `http://localhost:8081`, no mesmo navegador, com uma janela mobile próxima de 390 × 844. Faça uma venda com quatro fotos, solicite uma troca e realize uma compra simulada para preencher os históricos antes das capturas. Se necessário, role a tela e use captura de página inteira para mostrar o conteúdo.
 
@@ -141,12 +141,12 @@ Use o app em `http://localhost:8081`, no mesmo navegador, com uma janela mobile 
 | Tela inicial / Splash | Logo, nome e botão Começar | [assets/evidencias/01-tela-inicial.png](assets/evidencias/01-tela-inicial.png) |
 | Home / Catálogo | Quatro bolsas com fotos padronizadas, preços e navegação | [assets/evidencias/02-catalogo.png](assets/evidencias/02-catalogo.png) |
 | Detalhe do produto | Foto, marca, modelo, preço, informações e Comprar agora | [assets/evidencias/03-detalhe-produto.png](assets/evidencias/03-detalhe-produto.png) |
-| Vender minha bolsa | Marca/modelo, conservação, quatro fotos selecionadas e estimativa | [assets/evidencias/04-vender-bolsa.png](assets/evidencias/04-vender-bolsa.png) |
+| Vender minha bolsa | Formulário com seleção de fotos, marca/modelo, conservação e estimativa | [assets/evidencias/04-vender-bolsa.png](assets/evidencias/04-vender-bolsa.png) |
 | Exchange & Trade-in | Crédito e fotos da Speedy e da Selma | [assets/evidencias/05-trade-in.png](assets/evidencias/05-trade-in.png) |
 | Exchange Program | Ícone no círculo, histórico com card de solicitação e Realizar uma nova troca | [assets/evidencias/06-exchange-program.png](assets/evidencias/06-exchange-program.png) |
 | Nova solicitação de troca | Modal com etapas, seleção da peça e botão de confirmação | [assets/evidencias/07-nova-troca.png](assets/evidencias/07-nova-troca.png) |
-| Checkout | Bolsa, crédito aplicado, diferença e confirmação de compra simulada | [assets/evidencias/08-checkout.png](assets/evidencias/08-checkout.png) |
-| Perfil / Meu capítulo | Dados: Supabase, saldo, compra e cards rosas de peças enviadas e trocas | [assets/evidencias/09-perfil.png](assets/evidencias/09-perfil.png) |
+| Checkout | Bolsa, crédito disponível, opção de usar crédito, valor e confirmação de compra simulada | [assets/evidencias/08-checkout.png](assets/evidencias/08-checkout.png) |
+| Perfil / Meu capítulo | Dados: Supabase, saldo e cards rosas de peças enviadas e trocas | [assets/evidencias/09-perfil.png](assets/evidencias/09-perfil.png) |
 | Detalhe da peça enviada | Foto ampliada, miniaturas, status, estado, estimativa e código | [assets/evidencias/10-detalhe-venda.png](assets/evidencias/10-detalhe-venda.png) |
 | Detalhe da troca | Foto da peça, status Solicitada, crédito estimado, código e data | [assets/evidencias/11-detalhe-troca.png](assets/evidencias/11-detalhe-troca.png) |
 
@@ -165,18 +165,20 @@ Abra o projeto Supabase correspondente ao `.env`. As capturas devem mostrar os r
 
 Não inclua a tela do `.env`, senhas, tokens ou chaves nas capturas. O banco e o Storage continuam privados conforme as políticas do aplicativo; publicar esses prints de dados fictícios não altera as permissões.
 
+Conferência: a venda `muu9babb-t4r6gcs6` aparece no Perfil, nos detalhes da Prada e na tabela `sales`; a solicitação da Speedy aparece no programa, no Perfil, nos detalhes e em `exchanges`. O print do Storage mostra quatro arquivos de outro envio de teste, `muuahn7r-ue4lhmai`, também presente em `sales`. Ele comprova o armazenamento, mas não representa as fotos da Prada. O checkout foi capturado antes da compra, com crédito desativado; essa sessão ainda mostra zero compras no Perfil. A compra com crédito está demonstrada pelas evidências automatizadas anteriores e pode ser incluída no vídeo final.
+
 ### Vídeo e Figma — passos 2 e 4
 
-Preencher estes campos antes da entrega:
+Link do Figma inserido; preencher o vídeo e conferir as permissões antes da entrega:
 
 - **Vídeo de demonstração (YouTube ou Google Drive):** `COLE_AQUI_O_LINK_DO_VIDEO`
-- **Figma da entrega, com acesso para visualização:** `COLE_AQUI_O_LINK_DO_FIGMA`
+- **Figma da entrega:** [Next Chapter — App Prototype](https://www.figma.com/design/JpMUPu4txwKTUpDvjHxelR/Next-Chapter-%E2%80%94-App-Prototype?node-id=0-1&t=NfwugDCNd9QBRdyS-1). Acesso do professor ainda precisa ser conferido.
 
-O vídeo deve mostrar o aplicativo funcionando: navegação, envio com fotos, abertura dos cards e da galeria, solicitação de troca, histórico e recarregamento para comprovar persistência. Termine mostrando os registros correspondentes no Supabase. O link original do Figma permanece na seção Referência visual; o campo acima é para o endereço final compartilhado com o professor.
+O vídeo deve mostrar o aplicativo funcionando: navegação, envio com fotos, abertura dos cards e da galeria, solicitação de troca, histórico, compra com crédito e recarregamento para comprovar persistência. Termine mostrando os registros correspondentes no Supabase. O endereço atualizado do Figma também está na seção Referência visual. A tentativa de leitura pela ferramenta não permitiu conferir o compartilhamento; validar o link com acesso equivalente ao do professor.
 
 ### Conferência dos links e publicação
 
-- [ ] Todos os 15 PNG acima foram salvos, conferidos e publicados.
+- [x] Todos os 15 PNG acima foram salvos, conferidos e incluídos no repositório.
 - [ ] Link do vídeo preenchido e testado com acesso de visualização.
 - [ ] Link final do Figma preenchido e testado com acesso de visualização.
 - [ ] Professor/grupo conseguem abrir o repositório GitHub privado, ou a visibilidade foi ajustada.
