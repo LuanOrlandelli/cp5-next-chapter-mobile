@@ -49,7 +49,7 @@ O script cria duas sessões anônimas em um projeto dedicado, consulta o catálo
 
 O bucket privado `sale-photos` admite JPEG, PNG, WebP, HEIC e HEIF até 6 MB. Caminho: `<auth.uid>/<saleId>/<índice>`. Políticas isolam arquivos por pasta de usuário. O app envia arquivos e, se o registro de curadoria falhar, tenta remover os uploads parciais.
 
-## Evidência remota pendente
-Até configurar um projeto real e executar o roteiro/script, marcar o item banco conectado como pendente no checklist. Não apresentar os testes PGlite ou a simulação local como conexão Supabase remota.
+## Verificação real concluída — 04/10/2026
+O projeto foi configurado e o script npm run test:supabase passou contra o serviço real em 04/10/2026. A saída está em docs/evidence/12-supabase-integration.txt. Anexar também uma captura do Table Editor para a apresentação acadêmica.
 
 Referências: [Expo/React Native](https://supabase.com/docs/guides/getting-started/quickstarts/expo-react-native), [sessão anônima](https://supabase.com/docs/guides/auth/auth-anonymous), [RLS](https://supabase.com/docs/guides/database/postgres/row-level-security).

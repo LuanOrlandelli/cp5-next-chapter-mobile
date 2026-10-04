@@ -2,7 +2,7 @@
 
 **Toda peça merece um próximo capítulo.** Aplicativo acadêmico de compra, venda e troca de bolsas de luxo seminovas, construído em **React Native + Expo + TypeScript**. Entrega dos Checkpoints 4 e 5: seis telas inspiradas nas referências do Figma, protótipo navegável, dados mockados persistidos, integração Supabase implementada, testes e evidências de simulação no navegador Windows.
 
-> Status: protótipo local implementado e testado. Repositório publicado no GitHub. Configuração e comprovação de conexão a um Supabase real dependem de acesso do grupo; consultar o checklist antes da entrega. O logo foi reconstruído a partir da captura e precisa do arquivo original para fidelidade exata.
+> Status: protótipo local implementado e testado. Repositório publicado no GitHub. Conexão real com Supabase verificada em 04/10/2026; consultar o checklist antes da entrega. O logo foi reconstruído a partir da captura e precisa do arquivo original para fidelidade exata.
 
 ## Integrantes
 | Nome | RM |
@@ -115,4 +115,4 @@ git push -u origin main
 Se ainda não houver commit local, executar antes: `git add .` e `git commit -m "feat: prototipo Next Chapter CP4 e CP5"`. Depois conferir no GitHub o README, os documentos, os SQL e `docs/evidence`. Não versionar node_modules, .env ou pastas de build/teste temporárias. A publicação na conta indicada foi realizada e verificada.
 
 ## Conferência para entrega
-[Checklist CP4/CP5 com evidências e pendências](docs/CHECKLIST-ENTREGA.md). Concluir a configuração Supabase real e conceder acesso ao repositório para o professor antes da entrega. O projeto é acadêmico; não representa uma operação comercial ativa.
+[Checklist CP4/CP5 com evidências e pendências](docs/CHECKLIST-ENTREGA.md). Integração real Supabase verificada. Conceder acesso ao repositório para o professor antes da entrega. O projeto é acadêmico; não representa uma operação comercial ativa.

@@ -18,12 +18,12 @@
 | Dados mockados coerentes (15%) | products.json, carteira e peças elegíveis | Implementado e testado |
 | Ambiente de testes (15%) | Domínio, SQL, Playwright e roteiro manual | Configurado e executado |
 | Documentação atualizada (20%) | README, FLUXOS, DECISOES-TECNICAS, TESTES-MANUAIS | Implementado e publicado |
-| Integração de banco | Supabase client, schema, RLS, funções, seed, Storage | Código e SQL implementados; conexão real pendente |
+| Integração de banco | Supabase client, schema, RLS, funções, seed, Storage | Implementada e verificada no Supabase real em 04/10/2026 |
 | Simulação funcionando (20%) | Chromium no Windows; 8 PNG e 3 WebM | Executada e comprovada |
 
 ## Antes de entregar
-- [ ] Configurar o projeto Supabase e habilitar sessão anônima.
-- [ ] Executar `npm run test:supabase` com credenciais públicas de um projeto dedicado.
+- [x] Configurar o projeto Supabase e habilitar sessão anônima.
+- [x] Executar `npm run test:supabase` com credenciais públicas de um projeto dedicado — aprovado em 04/10/2026.
 - [ ] Anexar captura do Table Editor demonstrando registros persistidos no Supabase.
 - [x] Publicar e conferir o repositório GitHub: https://github.com/LuanOrlandelli/cp5-next-chapter-mobile.
 - [ ] Conceder acesso ao repositório privado para o professor/grupo.
@@ -32,4 +32,4 @@
 - [x] Executar protótipo e testes no navegador.
 - [x] Salvar capturas e vídeos da execução.
 
-A publicação remota foi executada. A integração Supabase real permanece pendente e não deve ser declarada concluída somente pela existência dos scripts. Não há nota presumida; este checklist mapeia os requisitos enviados pelo professor.
+A publicação remota foi executada. A integração Supabase real foi verificada pela execução bem-sucedida do script em 04/10/2026. Não há nota presumida; este checklist mapeia os requisitos enviados pelo professor.

@@ -1,0 +1,14 @@
+Next Chapter — integração real Supabase
+Data: 04/10/2026 (America/Sao_Paulo)
+Comando: npm.cmd run test:supabase
+Código de saída: 0
+
+OK: duas sessões anônimas autenticadas.
+OK: catálogo e carteiras inicializados.
+OK: favoritos isolados por RLS.
+OK: curadoria, estimativa e fotos privadas.
+OK: compra idempotente e crédito persistente.
+OK: troca, duplicata rejeitada e isolamento de pedidos.
+Integração real Supabase verificada. Usuários e registros de teste permanecem no projeto dedicado de demonstração.
+
+Não contém URL, chaves ou dados pessoais dos usuários.
