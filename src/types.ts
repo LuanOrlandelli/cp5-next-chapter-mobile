@@ -1,5 +1,5 @@
 export type Condition = 'Novo' | 'Excelente' | 'Bom' | 'Usado';
-export type Screen = 'splash' | 'home' | 'detail' | 'sell' | 'trade' | 'program' | 'profile' | 'checkout';
+export type Screen = 'splash' | 'home' | 'detail' | 'sell' | 'trade' | 'program' | 'profile' | 'checkout' | 'sale';
 export type Product = { id: string; brand: string; model: string; detail: string; price: number; condition: Condition; year: number; size: string; category: string; authenticated: boolean };
 export type EligiblePiece = { id: string; name: string; credit: number };
 export type Photo = { uri: string; base64?: string; mimeType?: string };

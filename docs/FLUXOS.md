@@ -42,3 +42,6 @@ flowchart TD
 - Recarregar inicia na Splash; os dados permanecem armazenados.
 
 Todas e Bolsas exibem o mesmo catálogo nesta entrega porque as quatro peças pertencem à categoria Bolsas. O catálogo, o detalhe e o checkout usam fotos ilustrativas locais dos quatro produtos; o fluxo de venda aceita fotos da galeria.
+### Detalhe de uma pe?a enviada
+
+Perfil ? Pe?as enviadas ? tocar no nome da pe?a ? detalhes da curadoria. A tela mostra foto ampliada, miniaturas selecion?veis, estado, status, estimativa, data e c?digo do envio. Voltar retorna ao Perfil. Em caso de falha nas fotos, ? poss?vel tentar novamente.

@@ -1,5 +1,5 @@
 import { test, expect, type Page } from '@playwright/test';
-import { mkdir } from 'node:fs/promises';
+import { mkdir, readFile } from 'node:fs/promises';
 const evidence = 'docs/evidence';
 async function start(page: Page) { await page.goto('/'); await page.getByRole('button', { name: 'Começar', exact: true }).click(); await expect(page.getByRole('button', { name: /Chanel Classic Flap,/ })).toBeVisible(); }
 async function capture(page: Page, name: string) { await mkdir(evidence, { recursive: true }); await page.screenshot({ path: `${evidence}/${name}.png` }); }
@@ -34,11 +34,19 @@ test('venda valida formulário, aceita quatro fotos e persiste curadoria', async
  await page.getByRole('textbox',{name:'Marca e modelo'}).fill('Prada Re-Edition 2005'); await page.getByRole('button',{name:'Enviar para curadoria'}).click(); await expect(page.getByText('Adicione pelo menos 4 fotos: frente, verso, interior e etiqueta.')).toBeVisible();
  await page.getByRole('button',{name:'Bom',exact:true}).click(); await expect(page.getByText('R$ 2.800 – R$ 3.360',{exact:true})).toBeVisible();
  const chooser = page.waitForEvent('filechooser'); await page.getByRole('button',{name:'Adicionar fotos da bolsa'}).click(); const fileChooser = await chooser;
- const png = Buffer.from('iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mP8/x8AAusB9Y9Zl1sAAAAASUVORK5CYII=','base64');
- await fileChooser.setFiles(['frente','verso','interior','etiqueta'].map(name => ({ name:`${name}.png`,mimeType:'image/png',buffer:png })));
+ const photo = await readFile('assets/products/chanel-classic.jpg');
+ await fileChooser.setFiles(['frente','verso','interior','etiqueta'].map(name => ({ name:`${name}.jpg`,mimeType:'image/jpeg',buffer:photo })));
  await expect(page.getByText('4 fotos selecionadas · Adicionar mais',{exact:true})).toBeVisible(); await page.getByRole('button',{name:'Enviar para curadoria'}).click(); await expect(page.getByText('Peça enviada para curadoria',{exact:true})).toBeVisible(); await page.getByRole('button',{name:'Entendi'}).click();
  await page.getByRole('button',{name:'Voltar',exact:true}).click(); await page.getByRole('button',{name:'Perfil',exact:true}).click(); await expect(page.getByText('Prada Re-Edition 2005',{exact:true})).toBeVisible(); await expect(page.getByText('Em curadoria · Bom · 4 fotos',{exact:true})).toBeVisible();
  await page.reload(); await page.getByRole('button',{name:'Começar',exact:true}).click(); await page.getByRole('button',{name:'Perfil',exact:true}).click(); await expect(page.getByText('Em curadoria · Bom · 4 fotos',{exact:true})).toBeVisible();
+ await page.getByRole('button',{name:'Prada Re-Edition 2005',exact:true}).click();
+ await expect(page.getByRole('heading',{name:'Prada Re-Edition 2005'})).toBeVisible();
+ await expect(page.getByRole('img',{name:'Foto 1 de Prada Re-Edition 2005'})).toBeVisible();
+ await page.getByRole('button',{name:'Ver foto 4',exact:true}).click();
+ await expect(page.getByText('Foto 4 de 4',{exact:true})).toBeVisible();
+ await expect(page.getByRole('img',{name:'Foto 4 de Prada Re-Edition 2005'})).toBeVisible();
+ await page.getByRole('button',{name:'Voltar',exact:true}).click();
+ await expect(page.getByText('Peças enviadas (1)',{exact:true})).toBeVisible();
 });
 test('layout de catálogo não cria rolagem horizontal em 360 e 1280 px', async ({ page }) => {
  for (const width of [360,1280]) { await page.setViewportSize({width,height:844}); await start(page); expect(await page.evaluate(() => document.documentElement.scrollWidth <= window.innerWidth)).toBe(true); await expect(page.getByRole('button',{name:/Gucci Marmont Small,/})).toBeVisible(); }

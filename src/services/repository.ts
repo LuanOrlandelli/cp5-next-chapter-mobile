@@ -101,3 +101,14 @@ export async function requestExchange(pieceId: string) {
   await getUserId(); const result = await supabase.rpc('request_demo_exchange', { piece: pieceId }); check(result.error); return result.data;
 }
 export const newRequestId = id;
+export async function loadSalePhotos(sale: Sale): Promise<string[]> {
+  assertDataConfiguration();
+  if (!supabase) return sale.photos;
+  await getUserId();
+  const { data, error } = await supabase.storage.from('sale-photos').createSignedUrls(sale.photos, 3600);
+  check(error);
+  if (!data || data.length !== sale.photos.length || data.some(photo => photo.error || !photo.signedUrl)) {
+    throw new Error('Não foi possível carregar as fotos desta peça. Tente novamente.');
+  }
+  return data.map(photo => photo.signedUrl!);
+}
