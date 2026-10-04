@@ -22,12 +22,16 @@
 | Simulação funcionando (20%) | Chromium no Windows; oito PNG e três WebM existentes | Comprovada; completar evidências da versão final |
 
 ## Antes de entregar
+
+Nomes e links das 15 capturas finais, além dos campos de vídeo/Figma: [Prints da versão final no README](../README.md#prints-da-versão-final). Salvar os PNG em `assets/evidencias/`, preencher os links, fazer commit/push e conferir o acesso antes de marcar os itens. A existência de links preparados não significa que as evidências já foram adicionadas.
+
 - [x] Configurar o projeto Supabase e habilitar sessão anônima.
 - [x] Executar `npm run test:supabase` com credenciais públicas de um projeto dedicado — aprovado em 04/10/2026.
 - [ ] Anexar captura do Table Editor demonstrando registros persistidos no Supabase.
 - [ ] Atualizar e conferir prints/vídeos dos cards rosas, galeria de venda, detalhes e histórico de trocas da versão final.
 - [x] Publicar e conferir o repositório GitHub: https://github.com/LuanOrlandelli/cp5-next-chapter-mobile.
 - [ ] Conceder acesso ao repositório privado para o professor/grupo.
+- [ ] Preencher e testar os links finais de vídeo e Figma no README com permissão de visualização para o professor.
 - [ ] Substituir logo reconstruído por export original e confirmar tokens/fontes caso seja exigida igualdade visual exata.
 - [x] Documentar escopo, marca, pitch, arquitetura e navegação.
 - [x] Atualizar documentação com dez telas, botão Realizar uma nova troca, cards, fotos privadas, sessão anônima e limitações de curadoria — 04/10/2026.

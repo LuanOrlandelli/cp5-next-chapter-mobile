@@ -127,3 +127,68 @@ Se ainda não houver commit local, executar antes: `git add .` e `git commit -m 
 
 ## Conferência para entrega
 [Checklist CP4/CP5 com evidências e pendências](docs/CHECKLIST-ENTREGA.md). Integração real Supabase verificada. Conceder acesso ao repositório para o professor antes da entrega. O projeto é acadêmico; não representa uma operação comercial ativa.
+
+## Prints da versão final
+
+Salve os prints em **`assets/evidencias/`**, dentro deste projeto, usando os nomes abaixo. Os links estão preparados para a entrega: **os arquivos desta lista ainda precisam ser adicionados**. Quando você salvar os PNG, fizer commit e push, os links passarão a abrir as imagens no GitHub. Não crie arquivos vazios para preencher a lista.
+
+Use o app em `http://localhost:8081`, no mesmo navegador, com uma janela mobile próxima de 390 × 844. Faça uma venda com quatro fotos, solicite uma troca e realize uma compra simulada para preencher os históricos antes das capturas. Se necessário, role a tela e use captura de página inteira para mostrar o conteúdo.
+
+### Telas e fluxos do aplicativo — passo 2
+
+| Print | O que mostrar | Arquivo / link |
+| --- | --- | --- |
+| Tela inicial / Splash | Logo, nome e botão Começar | [assets/evidencias/01-tela-inicial.png](assets/evidencias/01-tela-inicial.png) |
+| Home / Catálogo | Quatro bolsas com fotos padronizadas, preços e navegação | [assets/evidencias/02-catalogo.png](assets/evidencias/02-catalogo.png) |
+| Detalhe do produto | Foto, marca, modelo, preço, informações e Comprar agora | [assets/evidencias/03-detalhe-produto.png](assets/evidencias/03-detalhe-produto.png) |
+| Vender minha bolsa | Marca/modelo, conservação, quatro fotos selecionadas e estimativa | [assets/evidencias/04-vender-bolsa.png](assets/evidencias/04-vender-bolsa.png) |
+| Exchange & Trade-in | Crédito e fotos da Speedy e da Selma | [assets/evidencias/05-trade-in.png](assets/evidencias/05-trade-in.png) |
+| Exchange Program | Ícone no círculo, histórico com card de solicitação e Realizar uma nova troca | [assets/evidencias/06-exchange-program.png](assets/evidencias/06-exchange-program.png) |
+| Nova solicitação de troca | Modal com etapas, seleção da peça e botão de confirmação | [assets/evidencias/07-nova-troca.png](assets/evidencias/07-nova-troca.png) |
+| Checkout | Bolsa, crédito aplicado, diferença e confirmação de compra simulada | [assets/evidencias/08-checkout.png](assets/evidencias/08-checkout.png) |
+| Perfil / Meu capítulo | Dados: Supabase, saldo, compra e cards rosas de peças enviadas e trocas | [assets/evidencias/09-perfil.png](assets/evidencias/09-perfil.png) |
+| Detalhe da peça enviada | Foto ampliada, miniaturas, status, estado, estimativa e código | [assets/evidencias/10-detalhe-venda.png](assets/evidencias/10-detalhe-venda.png) |
+| Detalhe da troca | Foto da peça, status Solicitada, crédito estimado, código e data | [assets/evidencias/11-detalhe-troca.png](assets/evidencias/11-detalhe-troca.png) |
+
+A seção Trocas realizadas pode mostrar zero: a demonstração registra solicitações e não executa a conclusão administrativa. Não é necessário inventar uma troca concluída para o print. Se o Perfil não couber em uma imagem, faça uma captura de página inteira.
+
+### Integração Supabase — passo 3
+
+Abra o projeto Supabase correspondente ao `.env`. As capturas devem mostrar os registros da demonstração que você acabou de realizar, não apenas uma tabela vazia.
+
+| Print | O que mostrar | Arquivo / link |
+| --- | --- | --- |
+| Catálogo no banco | Table Editor → products, com os quatro produtos | [assets/evidencias/12-supabase-products.png](assets/evidencias/12-supabase-products.png) |
+| Venda no banco | Table Editor → sales, com a peça enviada e o código correspondente ao Perfil | [assets/evidencias/13-supabase-sales.png](assets/evidencias/13-supabase-sales.png) |
+| Solicitação de troca no banco | Table Editor → exchanges, com peça, status e data | [assets/evidencias/14-supabase-exchanges.png](assets/evidencias/14-supabase-exchanges.png) |
+| Fotos persistidas | Storage → sale-photos → pasta do usuário → código do envio, com os quatro arquivos | [assets/evidencias/15-supabase-storage.png](assets/evidencias/15-supabase-storage.png) |
+
+Não inclua a tela do `.env`, senhas, tokens ou chaves nas capturas. O banco e o Storage continuam privados conforme as políticas do aplicativo; publicar esses prints de dados fictícios não altera as permissões.
+
+### Vídeo e Figma — passos 2 e 4
+
+Preencher estes campos antes da entrega:
+
+- **Vídeo de demonstração (YouTube ou Google Drive):** `COLE_AQUI_O_LINK_DO_VIDEO`
+- **Figma da entrega, com acesso para visualização:** `COLE_AQUI_O_LINK_DO_FIGMA`
+
+O vídeo deve mostrar o aplicativo funcionando: navegação, envio com fotos, abertura dos cards e da galeria, solicitação de troca, histórico e recarregamento para comprovar persistência. Termine mostrando os registros correspondentes no Supabase. O link original do Figma permanece na seção Referência visual; o campo acima é para o endereço final compartilhado com o professor.
+
+### Conferência dos links e publicação
+
+- [ ] Todos os 15 PNG acima foram salvos, conferidos e publicados.
+- [ ] Link do vídeo preenchido e testado com acesso de visualização.
+- [ ] Link final do Figma preenchido e testado com acesso de visualização.
+- [ ] Professor/grupo conseguem abrir o repositório GitHub privado, ou a visibilidade foi ajustada.
+
+Adicionar os arquivos e links permite preencher as evidências, mas não concede acesso automaticamente ao GitHub, Drive ou Figma. Teste os links e marque os itens depois dessa conferência.
+
+Na pasta deste README, após salvar os prints e preencher os links:
+
+```bash
+git add README.md assets/evidencias docs/CHECKLIST-ENTREGA.md
+git commit -m "docs: adicionar evidencias finais da entrega"
+git push origin main
+```
+
+As evidências anteriores de testes continuam em [docs/evidence](docs/evidence/index.html). Os prints manuais acima usam uma pasta separada para não serem sobrescritos ao executar os testes. Um ZIP atualizado, se exigido, continua sendo uma etapa adicional.
