@@ -2,7 +2,7 @@ import React, { useCallback, useEffect, useRef, useState } from 'react';
 import { ActivityIndicator, AppState, BackHandler, Platform, StyleSheet, Text, View } from 'react-native';
 import { StatusBar } from 'expo-status-bar';
 import { SafeAreaProvider, SafeAreaView } from 'react-native-safe-area-context';
-import { supabase } from './src/services/supabase';
+import { supabase, dataMode } from './src/services/supabase';
 import { useFonts } from 'expo-font';
 import { Inter_400Regular } from '@expo-google-fonts/inter/400Regular';
 import { Inter_500Medium } from '@expo-google-fonts/inter/500Medium';
@@ -42,7 +42,10 @@ export default function App() {
     try { setState(await repository.loadState()); } catch { setLoadError('A operação foi registrada, mas o histórico não pôde ser atualizado. Volte ao catálogo e toque em Tentar novamente.'); }
     success(); busyRef.current = false; setBusy(false); return true;
   }
-  async function submit(brand: string, condition: Condition, photos: Photo[]) { return mutate(() => repository.submitSale(brand, condition, photos), () => notify('Peça enviada para curadoria', 'Recebemos suas fotos e informações. A estimativa é demonstrativa e será confirmada após avaliação. Consulte o andamento em Perfil.')); }
+  async function submit(brand: string, condition: Condition, photos: Photo[]) {
+    let saleId = '';
+    return mutate(async () => { saleId = await repository.submitSale(brand, condition, photos); }, () => notify('Peça enviada para curadoria', `Sua peça foi salva ${dataMode === 'Supabase' ? 'no Supabase' : 'neste navegador'}. Código: ${saleId}. A estimativa é demonstrativa e será confirmada após avaliação. Consulte o andamento em Perfil.`));
+  }
   async function request(pieceId: string) { return mutate(() => repository.requestExchange(pieceId), () => notify('Troca solicitada', 'Sua solicitação foi registrada. A curadoria irá avaliar a peça antes de confirmar o crédito e a taxa administrativa. Acompanhe em Perfil.')); }
   if (!fontsLoaded && !fontError) return <View style={s.loading}><ActivityIndicator color={colors.pink} /></View>;
   if (fontError) return <View style={s.loading}><Text style={common.error}>Não foi possível carregar as fontes. Reabra o aplicativo.</Text></View>;

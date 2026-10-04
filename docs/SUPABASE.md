@@ -53,3 +53,10 @@ O bucket privado `sale-photos` admite JPEG, PNG, WebP, HEIC e HEIF até 6 MB. Ca
 O projeto foi configurado e o script npm run test:supabase passou contra o serviço real em 04/10/2026. A saída está em docs/evidence/12-supabase-integration.txt. Anexar também uma captura do Table Editor para a apresentação acadêmica.
 
 Referências: [Expo/React Native](https://supabase.com/docs/guides/getting-started/quickstarts/expo-react-native), [sessão anônima](https://supabase.com/docs/guides/auth/auth-anonymous), [RLS](https://supabase.com/docs/guides/database/postgres/row-level-security).
+## Sess?o no navegador e confer?ncia de vendas
+
+Use sempre http://localhost:8081. O comando npm run web fixa essa porta; testes automatizados usam uma porta tempor?ria independente. A sess?o an?nima ? preservada pelo armazenamento do navegador e depende da origem: trocar porta, usar 127.0.0.1, outro navegador ou aba an?nima pode abrir outro usu?rio e outro hist?rico. Isso n?o exclui os registros anteriores do Supabase. N?o limpe o armazenamento para tentar recuperar uma sess?o anterior.
+
+Ap?s enviar uma pe?a, a confirma??o informa se foi salva no Supabase ou no navegador e mostra o c?digo do envio. O Perfil tamb?m mostra esse c?digo e a data. No Supabase, abra Table Editor ? sales para conferir id, brand_model, user_id e created_at; as fotos ficam no bucket privado sale-photos, com os caminhos na coluna photos. Um envio em modo Local n?o ? transferido automaticamente ao configurar o Supabase.
+
+Em 04/10/2026 foi verificado tamb?m o fluxo pela interface em localhost:8081, usando uma sess?o de teste separada: upload de quatro fotos, inser??o em public.sales, leitura do registro pela API, download dos quatro arquivos privados e perman?ncia do envio no Perfil ap?s recarregar. ID do registro de verifica??o: muua0aw8-durdnz65. Esse registro n?o representa a venda anterior do usu?rio.
