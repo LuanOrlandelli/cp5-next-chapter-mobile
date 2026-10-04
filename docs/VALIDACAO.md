@@ -73,4 +73,6 @@ Os 15 PNG adicionados pelo grupo em `assets/evidencias` foram abertos e conferid
 
 Os cards atuais e as galerias estão registrados. A venda `muu9babb-t4r6gcs6` corresponde ao Perfil, aos detalhes da Prada e à tabela `sales`; a solicitação da Speedy corresponde às telas e à tabela `exchanges`. O Storage mostra os quatro arquivos de outro envio de teste, `muuahn7r-ue4lhmai`, também presente no banco. Não se afirma que essas imagens do Storage sejam da Prada.
 
-O formulário de venda foi capturado vazio; o checkout, antes da confirmação e com crédito desativado; a sessão do Perfil não tem compra registrada. Os testes e vídeos anteriores comprovam os fluxos de envio e compra. O vídeo final deve complementar os prints mostrando preenchimento, uso de crédito, persistência e navegação. O link externo do vídeo e a conferência de acesso ao Figma/GitHub permanecem pendentes.
+O formulário de venda foi capturado vazio; o checkout, antes da confirmação e com crédito desativado; a sessão do Perfil não tem compra registrada. Os testes e vídeos anteriores comprovam os fluxos de envio e compra. O vídeo final deve complementar os prints mostrando preenchimento, uso de crédito, persistência e navegação.
+
+O grupo forneceu o [vídeo final no Google Drive](https://drive.google.com/file/d/1G6LfKHhAdkCW3e-8JkhPuDJJDvbkFPOv/view?usp=sharing) em 04/10/2026, e o link foi incluído no README. A ferramenta não conseguiu abrir o arquivo, portanto seu conteúdo e a permissão de visualização não foram validados. A conferência de acesso ao vídeo, Figma e GitHub permanece pendente.

@@ -19,7 +19,7 @@
 | Ambiente de testes (15%) | Domínio, SQL, Playwright e roteiro manual | Configurado e executado |
 | Documentação atualizada (20%) | README, FLUXOS, DECISOES-TECNICAS, TESTES-MANUAIS | Implementado e publicado |
 | Integração de banco | Supabase client, schema, RLS, funções, seed, Storage | Implementada e verificada no Supabase real em 04/10/2026 |
-| Simulação funcionando (20%) | Quinze prints manuais em assets/evidencias e evidências automatizadas anteriores | Prints atuais conferidos; link do vídeo final pendente |
+| Simulação funcionando (20%) | Quinze prints manuais, vídeos automatizados e vídeo final no Drive vinculado no README | Prints conferidos; conteúdo/acesso do vídeo final a conferir |
 
 ## Antes de entregar
 
@@ -29,7 +29,8 @@ Nomes e links das 15 capturas finais, além dos campos de vídeo/Figma: [Prints 
 - [x] Executar `npm run test:supabase` com credenciais públicas de um projeto dedicado — aprovado em 04/10/2026.
 - [x] Anexar capturas do Table Editor demonstrando registros persistidos no Supabase — products, sales e exchanges; Storage também incluído.
 - [x] Atualizar e conferir os 15 prints da versão atual, incluindo cards rosas, galeria de venda, detalhes e histórico de trocas — 04/10/2026.
-- [ ] Completar o vídeo final com os fluxos atuais e preencher seu link no README.
+- [x] Preencher o link do vídeo final no README — enviado pelo grupo em 04/10/2026.
+- [ ] Conferir se o vídeo final mostra os fluxos atuais; conteúdo não pôde ser aberto pela ferramenta.
 - [x] Publicar e conferir o repositório GitHub: https://github.com/LuanOrlandelli/cp5-next-chapter-mobile.
 - [ ] Conceder acesso ao repositório privado para o professor/grupo.
 - [x] Preencher o link atualizado do Figma no README — 04/10/2026.

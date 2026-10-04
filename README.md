@@ -169,9 +169,9 @@ Conferência: a venda `muu9babb-t4r6gcs6` aparece no Perfil, nos detalhes da Pra
 
 ### Vídeo e Figma — passos 2 e 4
 
-Link do Figma inserido; preencher o vídeo e conferir as permissões antes da entrega:
+Links do vídeo e do Figma inseridos; conferir as permissões antes da entrega:
 
-- **Vídeo de demonstração (YouTube ou Google Drive):** `COLE_AQUI_O_LINK_DO_VIDEO`
+- **Vídeo de demonstração:** [Assistir à demonstração no Google Drive](https://drive.google.com/file/d/1G6LfKHhAdkCW3e-8JkhPuDJJDvbkFPOv/view?usp=sharing), enviado pelo grupo em 04/10/2026. Conteúdo e acesso do professor ainda precisam ser conferidos; a ferramenta não conseguiu abrir o arquivo.
 - **Figma da entrega:** [Next Chapter — App Prototype](https://www.figma.com/design/JpMUPu4txwKTUpDvjHxelR/Next-Chapter-%E2%80%94-App-Prototype?node-id=0-1&t=NfwugDCNd9QBRdyS-1). Acesso do professor ainda precisa ser conferido.
 
 O vídeo deve mostrar o aplicativo funcionando: navegação, envio com fotos, abertura dos cards e da galeria, solicitação de troca, histórico, compra com crédito e recarregamento para comprovar persistência. Termine mostrando os registros correspondentes no Supabase. O endereço atualizado do Figma também está na seção Referência visual. A tentativa de leitura pela ferramenta não permitiu conferir o compartilhamento; validar o link com acesso equivalente ao do professor.
@@ -179,7 +179,8 @@ O vídeo deve mostrar o aplicativo funcionando: navegação, envio com fotos, ab
 ### Conferência dos links e publicação
 
 - [x] Todos os 15 PNG acima foram salvos, conferidos e incluídos no repositório.
-- [ ] Link do vídeo preenchido e testado com acesso de visualização.
+- [x] Link do vídeo preenchido.
+- [ ] Conteúdo do vídeo e acesso de visualização conferidos para o professor.
 - [ ] Link final do Figma preenchido e testado com acesso de visualização.
 - [ ] Professor/grupo conseguem abrir o repositório GitHub privado, ou a visibilidade foi ajustada.
 
