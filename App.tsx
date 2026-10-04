@@ -16,18 +16,20 @@ import TradeInScreen from './src/screens/TradeInScreen';
 import ExchangeProgramScreen from './src/screens/ExchangeProgramScreen';
 import ProfileScreen from './src/screens/ProfileScreen';
 import SaleDetailScreen from './src/screens/SaleDetailScreen';
+import ExchangeDetailScreen from './src/screens/ExchangeDetailScreen';
 import CheckoutScreen from './src/screens/CheckoutScreen';
 import { Dialog } from './src/components/UI';
 import { colors, common } from './src/theme';
 import { initialState } from './src/domain/rules';
 import * as repository from './src/services/repository';
-import type { Condition, DemoState, Photo, Product, Sale, Screen } from './src/types';
+import type { Condition, DemoState, Exchange, Photo, Product, Sale, Screen } from './src/types';
 export default function App() {
   const [fontsLoaded, fontError] = useFonts({ Inter_400Regular, Inter_500Medium, Inter_700Bold, Inter_900Black });
   const [route, setRoute] = useState<Screen>('splash'); const history = useRef<Screen[]>([]);
   const [products, setProducts] = useState<Product[]>([]); const [state, setState] = useState<DemoState>(initialState);
   const [product, setProduct] = useState<Product | null>(null); const [loading, setLoading] = useState(true); const [loadError, setLoadError] = useState('');
   const [sale, setSale] = useState<Sale | null>(null);
+  const [exchange, setExchange] = useState<Exchange | null>(null);
   const [busy, setBusy] = useState(false); const busyRef = useRef(false); const [searching, setSearching] = useState(false); const [useCredit, setUseCredit] = useState(false); const [piece, setPiece] = useState<string>();
   const [dialog, setDialog] = useState({ title: '', message: '' }); const notify = (title: string, message: string) => setDialog({ title, message });
   const load = useCallback(async () => { setLoading(true); setLoadError(''); try { const [catalog, snapshot] = await Promise.all([repository.loadProducts(), repository.loadState()]); setProducts(catalog); setState(snapshot); } catch (e) { setLoadError(e instanceof Error ? e.message : 'Não foi possível carregar os dados.'); } finally { setLoading(false); } }, []);
@@ -37,6 +39,7 @@ export default function App() {
   const back = useCallback(() => { if (busyRef.current) return; setRoute(history.current.pop() || 'home'); }, []);
   useEffect(() => { const listener = BackHandler.addEventListener('hardwareBackPress', () => { if (route === 'splash' || (route === 'home' && !history.current.length)) return false; back(); return true; }); return () => listener.remove(); }, [route, back]);
   function openProduct(p: Product) { setProduct(p); navigate('detail'); }
+  function openExchange(item: Exchange) { setExchange(item); navigate('exchange'); }
   async function mutate(action: () => Promise<unknown>, success: () => void): Promise<boolean> {
     if (busyRef.current || loading || loadError) { if (loadError) notify('Dados indisponíveis', 'Volte ao catálogo e tente carregar os dados novamente.'); return false; }
     busyRef.current = true; setBusy(true);
@@ -57,9 +60,10 @@ export default function App() {
     {route === 'detail' && product && <ProductDetailScreen product={product} back={back} buy={() => navigate('checkout')} favorite={state.favorites.includes(product.id)} toggleFavorite={() => void mutate(() => repository.toggleFavorite(product.id, !state.favorites.includes(product.id)), () => {})} busy={busy} />}
     {route === 'sell' && <SellScreen back={back} submit={submit} busy={busy} notify={notify} />}
     {route === 'trade' && <TradeInScreen state={state} back={back} useCredit={() => { setUseCredit(true); setSearching(false); navigate('home'); }} program={pieceId => { setPiece(pieceId); navigate('program'); }} />}
-    {route === 'program' && <ExchangeProgramScreen state={state} back={back} initialPiece={piece} request={request} busy={busy} />}
-    {route === 'profile' && <ProfileScreen state={state} products={products} back={back} openProduct={openProduct} openSale={item => { setSale(item); navigate('sale'); }} />}
+    {route === 'program' && <ExchangeProgramScreen state={state} back={back} initialPiece={piece} request={request} busy={busy} openExchange={openExchange} />}
+    {route === 'profile' && <ProfileScreen state={state} products={products} back={back} openProduct={openProduct} openSale={item => { setSale(item); navigate('sale'); }} openExchange={openExchange} />}
     {route === 'sale' && sale && <SaleDetailScreen sale={sale} back={back} />}
+    {route === 'exchange' && exchange && <ExchangeDetailScreen exchange={exchange} piece={state.eligible.find(p => p.id === exchange.pieceId)} back={back} />}
     {route === 'checkout' && product && <CheckoutScreen product={product} credit={state.credit} back={back} initialCredit={useCredit} busy={busy} confirm={(apply, requestId) => void mutate(() => repository.purchase(product, apply, requestId), () => { setUseCredit(false); history.current = ['home']; setRoute('profile'); notify('Compra simulada concluída', 'Pedido registrado e saldo atualizado. Esta demonstração não realiza cobranças.'); })} />}
     <Dialog title={dialog.title} message={dialog.message} onClose={() => setDialog({ title: '', message: '' })} />
   </View></SafeAreaView></SafeAreaProvider>;

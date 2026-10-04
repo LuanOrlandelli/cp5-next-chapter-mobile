@@ -10,11 +10,21 @@ test('percurso pelas seis telas do Figma e solicitação de troca', async ({ pag
  await page.getByRole('button',{name:/Chanel Classic Flap,/}).click(); await expect(page.getByText('Classic Flap Medium — Caviar',{exact:true})).toBeVisible(); await capture(page,'03-detalhe');
  await page.getByRole('button',{name:'Voltar',exact:true}).click(); await page.getByRole('button',{name:'Vender',exact:true}).last().click(); await expect(page.getByRole('textbox',{name:'Marca e modelo'})).toBeVisible(); await capture(page,'04-vender');
  await page.getByRole('button',{name:'Voltar',exact:true}).click(); await page.getByRole('button',{name:'Trocar',exact:true}).last().click(); await expect(page.getByText('R$ 1.240',{exact:true})).toBeVisible(); await capture(page,'05-trade-in');
- await page.getByRole('button',{name:'Solicitar troca',exact:true}).click(); await expect(page.getByRole('button',{name:'Conhecer o programa'})).toBeVisible(); await capture(page,'06-exchange-program');
- await page.getByRole('button',{name:'Conhecer o programa'}).click(); await page.getByRole('button',{name:'Confirmar solicitação de troca'}).click(); await expect(page.getByText('Troca solicitada',{exact:true})).toBeVisible(); await page.getByRole('button',{name:'Entendi'}).click();
+ await page.getByRole('button',{name:'Solicitar troca',exact:true}).click(); await expect(page.getByRole('button',{name:'Realizar uma nova troca'})).toBeVisible(); await capture(page,'06-exchange-program');
+ await page.getByRole('button',{name:'Realizar uma nova troca'}).click(); await page.getByRole('button',{name:'Confirmar solicitação de troca'}).click(); await expect(page.getByText('Troca solicitada',{exact:true})).toBeVisible(); await page.getByRole('button',{name:'Entendi'}).click();
  await page.getByRole('button',{name:'Voltar',exact:true}).click(); await expect(page.getByText('Troca solicitada',{exact:true})).toBeVisible();
- await page.getByRole('button',{name:'Solicitar troca',exact:true}).click(); await page.getByRole('button',{name:'Conhecer o programa'}).click(); await expect(page.getByRole('button',{name:/Louis Vuitton Speedy 30 ·/})).toHaveCount(0); await page.getByRole('button',{name:'Fechar',exact:true}).click();
- await page.getByRole('button',{name:'Voltar',exact:true}).click(); await page.getByRole('button',{name:'Voltar',exact:true}).click(); await page.getByRole('button',{name:'Perfil',exact:true}).click(); await expect(page.getByText('Louis Vuitton Speedy 30 · Solicitada',{exact:true})).toBeVisible();
+ await page.getByRole('button',{name:'Solicitar troca',exact:true}).click();
+ await expect(page.getByText('Solicitações de troca (1)',{exact:true})).toBeVisible();
+ await expect(page.getByText('Trocas realizadas (0)',{exact:true})).toBeVisible();
+ await page.getByRole('button',{name:'Louis Vuitton Speedy 30 · Solicitada',exact:true}).click();
+ await expect(page.getByRole('heading',{name:'Louis Vuitton Speedy 30',exact:true})).toBeVisible();
+ await expect(page.getByRole('img',{name:'Foto de Louis Vuitton Speedy 30',exact:true})).toBeVisible();
+ await page.getByRole('button',{name:'Voltar',exact:true}).click();
+ await page.getByRole('button',{name:'Voltar',exact:true}).click();
+ await page.getByRole('button',{name:'Solicitar troca',exact:true}).click(); await page.getByRole('button',{name:'Realizar uma nova troca'}).click(); await expect(page.getByRole('dialog').getByRole('button',{name:/Louis Vuitton Speedy 30 ·/})).toHaveCount(0); await page.getByRole('button',{name:'Fechar',exact:true}).click();
+ await page.getByRole('button',{name:'Voltar',exact:true}).click(); await page.getByRole('button',{name:'Voltar',exact:true}).click(); await page.getByRole('button',{name:'Perfil',exact:true}).click(); await page.getByRole('button',{name:'Louis Vuitton Speedy 30 · Solicitada',exact:true}).click();
+ await expect(page.getByRole('heading',{name:'Louis Vuitton Speedy 30',exact:true})).toBeVisible();
+ await page.getByRole('button',{name:'Voltar',exact:true}).click();
  expect(errors).toEqual([]);
 });
 test('favoritos persistem e busca filtra marcas', async ({ page }) => {
