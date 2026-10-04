@@ -2,7 +2,7 @@
 
 **Toda peça merece um próximo capítulo.** Aplicativo acadêmico de compra, venda e troca de bolsas de luxo seminovas, construído em **React Native + Expo + TypeScript**. Entrega dos Checkpoints 4 e 5: seis telas inspiradas nas referências do Figma, protótipo navegável, dados mockados persistidos, integração Supabase implementada, testes e evidências de simulação no navegador Windows.
 
-> Status em 04/10/2026: protótipo com dez telas, persistência local ou Supabase, cards de vendas e trocas e consulta de fotos. Repositório publicado no GitHub e integração real verificada. As evidências visuais finais e o acesso do professor ainda devem ser conferidos no checklist. O logo foi reconstruído a partir da captura; o original é necessário para fidelidade exata.
+> Status em 04/10/2026: protótipo com dez telas, persistência local ou Supabase, cards de vendas e trocas e consulta de fotos. Repositório publicado no GitHub e integração real verificada. Os 15 prints foram conferidos e o acesso ao vídeo e ao Figma foi confirmado pelo grupo em janela anônima. O logo foi reconstruído a partir da captura; o original é necessário para fidelidade exata.
 
 ## Integrantes
 | Nome | RM |
@@ -169,19 +169,20 @@ Conferência: a venda `muu9babb-t4r6gcs6` aparece no Perfil, nos detalhes da Pra
 
 ### Vídeo e Figma — passos 2 e 4
 
-Links do vídeo e do Figma inseridos; conferir as permissões antes da entrega:
+Links do vídeo e do Figma inseridos; acesso em janela anônima confirmado pelo grupo em 04/10/2026.
 
-- **Vídeo de demonstração:** [Assistir à demonstração no Google Drive](https://drive.google.com/file/d/1G6LfKHhAdkCW3e-8JkhPuDJJDvbkFPOv/view?usp=sharing), enviado pelo grupo em 04/10/2026. Conteúdo e acesso do professor ainda precisam ser conferidos; a ferramenta não conseguiu abrir o arquivo.
-- **Figma da entrega:** [Next Chapter — App Prototype](https://www.figma.com/design/JpMUPu4txwKTUpDvjHxelR/Next-Chapter-%E2%80%94-App-Prototype?node-id=0-1&t=NfwugDCNd9QBRdyS-1). Acesso do professor ainda precisa ser conferido.
+- **Vídeo de demonstração:** [Assistir à demonstração no Google Drive](https://drive.google.com/file/d/1G6LfKHhAdkCW3e-8JkhPuDJJDvbkFPOv/view?usp=sharing), enviado pelo grupo em 04/10/2026. Acesso em janela anônima confirmado pelo grupo em 04/10/2026. O conteúdo do vídeo não foi revisado pela ferramenta.
+- **Figma da entrega:** [Next Chapter — App Prototype](https://www.figma.com/design/JpMUPu4txwKTUpDvjHxelR/Next-Chapter-%E2%80%94-App-Prototype?node-id=0-1&t=NfwugDCNd9QBRdyS-1). Acesso em janela anônima confirmado pelo grupo em 04/10/2026.
 
-O vídeo deve mostrar o aplicativo funcionando: navegação, envio com fotos, abertura dos cards e da galeria, solicitação de troca, histórico, compra com crédito e recarregamento para comprovar persistência. Termine mostrando os registros correspondentes no Supabase. O endereço atualizado do Figma também está na seção Referência visual. A tentativa de leitura pela ferramenta não permitiu conferir o compartilhamento; validar o link com acesso equivalente ao do professor.
+O vídeo deve mostrar o aplicativo funcionando: navegação, envio com fotos, abertura dos cards e da galeria, solicitação de troca, histórico, compra com crédito e recarregamento para comprovar persistência. Termine mostrando os registros correspondentes no Supabase. O endereço atualizado do Figma também está na seção Referência visual. O grupo confirmou que ambos os links abrem em janela anônima.
 
 ### Conferência dos links e publicação
 
 - [x] Todos os 15 PNG acima foram salvos, conferidos e incluídos no repositório.
 - [x] Link do vídeo preenchido.
-- [ ] Conteúdo do vídeo e acesso de visualização conferidos para o professor.
-- [ ] Link final do Figma preenchido e testado com acesso de visualização.
+- [x] Acesso ao vídeo confirmado pelo grupo em janela anônima em 04/10/2026.
+- [ ] Conferir se o conteúdo do vídeo demonstra os fluxos descritos acima.
+- [x] Link final do Figma preenchido e acesso confirmado pelo grupo em janela anônima em 04/10/2026.
 - [x] Repositório GitHub público, com acesso sem convite confirmado em 04/10/2026.
 
 Adicionar os arquivos e links permite preencher as evidências, mas não concede acesso automaticamente ao GitHub, Drive ou Figma. Teste os links e marque os itens depois dessa conferência.

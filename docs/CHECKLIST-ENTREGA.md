@@ -19,7 +19,7 @@
 | Ambiente de testes (15%) | Domínio, SQL, Playwright e roteiro manual | Configurado e executado |
 | Documentação atualizada (20%) | README, FLUXOS, DECISOES-TECNICAS, TESTES-MANUAIS | Implementado e publicado |
 | Integração de banco | Supabase client, schema, RLS, funções, seed, Storage | Implementada e verificada no Supabase real em 04/10/2026 |
-| Simulação funcionando (20%) | Quinze prints manuais, vídeos automatizados e vídeo final no Drive vinculado no README | Prints conferidos; conteúdo/acesso do vídeo final a conferir |
+| Simulação funcionando (20%) | Quinze prints manuais, vídeos automatizados e vídeo final no Drive vinculado no README | Prints conferidos; acesso ao vídeo confirmado pelo grupo; revisão do conteúdo pendente |
 
 ## Antes de entregar
 
@@ -34,7 +34,7 @@ Nomes e links das 15 capturas finais, além dos campos de vídeo/Figma: [Prints 
 - [x] Publicar e conferir o repositório GitHub: https://github.com/LuanOrlandelli/cp5-next-chapter-mobile.
 - [x] Disponibilizar o repositório ao professor/grupo — público, confirmado pela API do GitHub em 04/10/2026.
 - [x] Preencher o link atualizado do Figma no README — 04/10/2026.
-- [ ] Testar os links finais de vídeo e Figma com permissão de visualização para o professor; acesso do Figma ainda não confirmado.
+- [x] Testar os links finais de vídeo e Figma sem login — o grupo confirmou que ambos abrem em janela anônima em 04/10/2026.
 - [ ] Substituir logo reconstruído por export original e confirmar tokens/fontes caso seja exigida igualdade visual exata.
 - [x] Documentar escopo, marca, pitch, arquitetura e navegação.
 - [x] Atualizar documentação com dez telas, botão Realizar uma nova troca, cards, fotos privadas, sessão anônima e limitações de curadoria — 04/10/2026.
