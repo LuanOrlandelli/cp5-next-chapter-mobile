@@ -5,7 +5,7 @@
 | --- | --- | --- |
 | Problema, público e proposta (20%) | ESCOPO.md | Implementado |
 | Documentação / README / escopo (25%) | README.md e docs/ | Implementado e publicado |
-| Repositório GitHub organizado | Código, README, integrantes e guias | Publicado; repositório privado |
+| Repositório GitHub organizado | Código, README, integrantes e guias | Publicado; repositório público, confirmado em 04/10/2026 |
 | Marca e identidade (25%) | MARCA-E-PITCH.md, assets/next-chapter-mark.svg e theme.ts | Implementado; logo e tokens aproximados |
 | Pitch / negócio / diferencial (15%) | MARCA-E-PITCH.md | Documentado |
 | Estrutura técnica inicial (15%) | Expo, TypeScript, componentes, telas, dados e serviços | Implementado e verificado |
@@ -32,7 +32,7 @@ Nomes e links das 15 capturas finais, além dos campos de vídeo/Figma: [Prints 
 - [x] Preencher o link do vídeo final no README — enviado pelo grupo em 04/10/2026.
 - [ ] Conferir se o vídeo final mostra os fluxos atuais; conteúdo não pôde ser aberto pela ferramenta.
 - [x] Publicar e conferir o repositório GitHub: https://github.com/LuanOrlandelli/cp5-next-chapter-mobile.
-- [ ] Conceder acesso ao repositório privado para o professor/grupo.
+- [x] Disponibilizar o repositório ao professor/grupo — público, confirmado pela API do GitHub em 04/10/2026.
 - [x] Preencher o link atualizado do Figma no README — 04/10/2026.
 - [ ] Testar os links finais de vídeo e Figma com permissão de visualização para o professor; acesso do Figma ainda não confirmado.
 - [ ] Substituir logo reconstruído por export original e confirmar tokens/fontes caso seja exigida igualdade visual exata.

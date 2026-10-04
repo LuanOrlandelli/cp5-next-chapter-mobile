@@ -111,7 +111,7 @@ docs/                      CP4, CP5, roteiros e evidências
 
 ## Repositório GitHub
 
-[CP5 Next Chapter Mobile](https://github.com/LuanOrlandelli/cp5-next-chapter-mobile) — repositório privado publicado na conta LuanOrlandelli. Conceder acesso ao professor/grupo ou ajustar a visibilidade na conta antes da avaliação. Código, README, SQL, testes e evidências estão versionados.
+[CP5 Next Chapter Mobile](https://github.com/LuanOrlandelli/cp5-next-chapter-mobile) — repositório público na conta LuanOrlandelli, com visibilidade confirmada pela API do GitHub em 04/10/2026. Código, README, SQL, testes e evidências estão versionados e disponíveis ao professor/grupo.
 
 Para atualizar a publicação: executar git add ., git commit e git push. As instruções abaixo também permitem publicar uma cópia em outra conta.
 
@@ -126,7 +126,7 @@ git push -u origin main
 Se ainda não houver commit local, executar antes: `git add .` e `git commit -m "feat: prototipo Next Chapter CP4 e CP5"`. Depois conferir no GitHub o README, os documentos, os SQL e `docs/evidence`. Não versionar node_modules, .env ou pastas de build/teste temporárias. A publicação na conta indicada foi realizada e verificada.
 
 ## Conferência para entrega
-[Checklist CP4/CP5 com evidências e pendências](docs/CHECKLIST-ENTREGA.md). Integração real Supabase verificada. Conceder acesso ao repositório para o professor antes da entrega. O projeto é acadêmico; não representa uma operação comercial ativa.
+[Checklist CP4/CP5 com evidências e pendências](docs/CHECKLIST-ENTREGA.md). Integração real Supabase verificada e repositório público. O projeto é acadêmico; não representa uma operação comercial ativa.
 
 ## Prints da versão final
 
@@ -182,7 +182,7 @@ O vídeo deve mostrar o aplicativo funcionando: navegação, envio com fotos, ab
 - [x] Link do vídeo preenchido.
 - [ ] Conteúdo do vídeo e acesso de visualização conferidos para o professor.
 - [ ] Link final do Figma preenchido e testado com acesso de visualização.
-- [ ] Professor/grupo conseguem abrir o repositório GitHub privado, ou a visibilidade foi ajustada.
+- [x] Repositório GitHub público, com acesso sem convite confirmado em 04/10/2026.
 
 Adicionar os arquivos e links permite preencher as evidências, mas não concede acesso automaticamente ao GitHub, Drive ou Figma. Teste os links e marque os itens depois dessa conferência.
 
