@@ -1,13 +1,13 @@
 # Validação — 02 a 04/10/2026
 
-Ambiente efetivamente usado: Windows, Node 24.13.0, npm 11.6.2, Expo SDK 57 e Chromium via Playwright. Dados locais mockados. Viewport principal: 390 × 844; responsividade adicional em 360 e 1280 px.
+Ambiente efetivamente usado: Windows, Node 24.13.0, npm 11.6.2, Expo SDK 57 e Chromium via Playwright. Dados locais mockados nos testes automatizados de interface e integração Supabase real nas verificações remotas separadas. Viewport principal: 390 × 844; responsividade adicional em 360 e 1280 px.
 
 | Verificação | Resultado |
 | --- | --- |
 | TypeScript (`npm run typecheck`) | Aprovado após inclusão dos tipos Node para testes |
 | Regras de negócio (`npm test`) | 12 testes aprovados |
 | SQL (`npm run test:db`) | 9 subcenários aprovados; runner contabiliza 10 testes com o teste pai |
-| Interface (`npm run test:e2e`) | 6 testes aprovados |
+| Interface (`npm run test:e2e`) | Seis testes aprovados anteriormente; cenários de venda e troca reexecutados após as respectivas alterações, com aprovação |
 | Expo Doctor | 21/21 verificações aprovadas |
 | Exportação web (`npm run build:web`) | Build gerado em dist |
 | Capturas do navegador | 8 imagens PNG |
@@ -56,4 +56,17 @@ Executado npm run test:supabase contra o projeto configurado no .env. Código de
 [Saída do teste](evidence/12-supabase-integration.txt). Falta anexar captura do Table Editor para apresentação.
 
 ## Fotos no catálogo — 04/10/2026
-A pedido do grupo, foram adicionadas fotos ilustrativas locais para Chanel, Louis Vuitton, Dior e Gucci no catálogo, detalhe e checkout. Fontes em assets/products/README.md. Conferência visual de docs/evidence/02-home.png aprovada; TypeScript e os seis testes E2E aprovados após a alteração. Build web inclui as quatro imagens. O teste usa localhost na porta 8082, isolado dos dados e do servidor Supabase do grupo.
+A pedido do grupo, foram adicionadas e padronizadas fotos ilustrativas locais para Chanel, Louis Vuitton, Dior, Gucci, Speedy e Selma. As quatro primeiras aparecem no catálogo, detalhe e checkout; as duas últimas no Trade-in e no detalhe de troca. As versões padronizadas foram editadas com IA; referências e procedimento em [assets/products/README.md](../assets/products/README.md).
+
+## Alterações funcionais verificadas — 04/10/2026
+- Perfil: cards rosas inteiramente clicáveis para peças enviadas e trocas.
+- Detalhe de envio: seleção entre quatro fotos, estado, status, estimativa, código e data. Cenário de venda aprovado após a inclusão da galeria e novamente após a conversão do título em card.
+- Supabase real: envio pela interface, registro em `sales`, download dos quatro arquivos privados e histórico após recarregar. Uma segunda verificação abriu a galeria com links assinados e selecionou a quarta foto.
+- Exchange Program: histórico, mensagens de estado vazio e botão Realizar uma nova troca; ícone vetorial dentro do círculo oliva.
+- Detalhe de troca: abertura pelo Perfil e pelo histórico, foto da peça e retorno à origem; cenário de navegação/troca aprovado após as alterações.
+- TypeScript aprovado após as mudanças funcionais. Não se afirma nova execução completa do build, Expo Doctor ou de todas as suítes após cada ajuste visual.
+
+Os testes de interface usam dados locais e porta temporária configurável por `E2E_PORT`, normalmente 8082; o uso pessoal do app permanece em `localhost:8081`. O roteiro manual inclui a galeria, os cards e a privacidade, mas não equivale a comprovação de execução em Android/iOS.
+
+## Evidências finais ainda a completar
+Os oito PNG e três vídeos existentes comprovam a execução, mas não cobrem integralmente os últimos cards e as duas telas de detalhes. Atualizar a seleção de prints/vídeos e anexar a captura do Table Editor antes de finalizar a entrega. A documentação não considera essa renovação de evidências concluída.

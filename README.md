@@ -2,7 +2,7 @@
 
 **Toda peça merece um próximo capítulo.** Aplicativo acadêmico de compra, venda e troca de bolsas de luxo seminovas, construído em **React Native + Expo + TypeScript**. Entrega dos Checkpoints 4 e 5: seis telas inspiradas nas referências do Figma, protótipo navegável, dados mockados persistidos, integração Supabase implementada, testes e evidências de simulação no navegador Windows.
 
-> Status: protótipo local implementado e testado. Repositório publicado no GitHub. Conexão real com Supabase verificada em 04/10/2026; consultar o checklist antes da entrega. O logo foi reconstruído a partir da captura e precisa do arquivo original para fidelidade exata.
+> Status em 04/10/2026: protótipo com dez telas, persistência local ou Supabase, cards de vendas e trocas e consulta de fotos. Repositório publicado no GitHub e integração real verificada. As evidências visuais finais e o acesso do professor ainda devem ser conferidos no checklist. O logo foi reconstruído a partir da captura; o original é necessário para fidelidade exata.
 
 ## Integrantes
 | Nome | RM |
@@ -27,21 +27,27 @@ npm ci
 npm run web
 ```
 
-Acesse a URL local exibida pelo Expo (normalmente http://localhost:8081). O navegador apresenta uma coluna mobile de até 390 px. Sem variáveis Supabase, o app usa JSON local e armazenamento persistente no navegador, suficiente para demonstrar todos os fluxos.
+Acesse **http://localhost:8081**: `npm run web` fixa essa porta. O navegador apresenta uma coluna mobile de até 390 px. Se a porta estiver ocupada, encerre o servidor anterior deste projeto antes de reiniciar. Sem variáveis Supabase, o app usa JSON local e armazenamento persistente no navegador.
+
+Use sempre o mesmo endereço e navegador para manter a sessão. Trocar a porta, usar `127.0.0.1` ou abrir uma janela anônima pode apresentar outro histórico. `npm run web -- --clear` limpa o cache do Expo, não a sessão nem os dados do navegador. Após alterar `.env`, reinicie o Expo.
 
 Para emulador Android iniciado no Android Studio: `npm run android`. Para aparelho com Expo Go compatível com SDK 57: `npm start` e leia o QR Code. A validação desta entrega ocorreu no navegador Windows; não se afirma execução Android/iOS sem evidência.
 
 ## Funcionalidades
 - Splash e catálogo com quatro bolsas coerentes com o protótipo.
 - Busca por marca/modelo, navegação e detalhe de todos os produtos.
-- Favoritos persistidos e perfil com histórico.
+- Favoritos persistidos e Perfil com saldo, compras e cards rosas clicáveis de peças enviadas e trocas.
 - Venda: seleção real de 4 a 8 fotos, marca/modelo, conservação e estimativa simulada.
 - Trade-in com R$ 1.240 de crédito inicial fictício e duas peças elegíveis.
-- Exchange Program com explicação, seleção e solicitação de troca sem duplicata.
+- Detalhes de uma peça enviada: status, conservação, estimativa, código, data e galeria com foto ampliada e miniaturas selecionáveis.
+- Exchange Program com histórico de solicitações, seção de trocas realizadas e botão **Realizar uma nova troca**, com seleção de peça e prevenção de duplicatas.
+- Detalhes da troca: foto ilustrativa da peça, status, estimativa de crédito, código e data; retorno ao Perfil ou ao Exchange Program.
 - Checkout simulado com uso parcial de crédito, saldo atualizado e pedido persistido.
 - Supabase: catálogo, carteira, favoritos, curadorias, pedidos, trocas e fotos em Storage privado.
 
-Fotos ilustrativas dos quatro produtos foram adicionadas ao catálogo, detalhe e checkout a pedido do grupo. Fontes em assets/products/README.md. Os selos de autenticação, preços, estimativas e peças são dados de demonstração. Solicitar troca não concede crédito automaticamente; não há gateway de pagamento, frete ou backend de curadoria.
+As fotos ilustrativas dos quatro produtos e das duas peças elegíveis são arquivos locais empacotados, padronizados com fundo branco e enquadramento centralizado. Fontes e descrição das edições com IA em [assets/products/README.md](assets/products/README.md). As fotos enviadas pelo usuário ficam no navegador em modo Local ou no Storage privado em modo Supabase; a galeria usa links assinados de uma hora para acesso autorizado.
+
+Os selos de autenticação, preços, estimativas e peças são dados de demonstração. Solicitar troca não concede crédito nem conclui a troca automaticamente. O banco atual registra o status **Solicitada**; não há fluxo administrativo de aprovação/conclusão. A seção **Trocas realizadas** fica vazia nesta demonstração. Não há gateway de pagamento ou frete.
 
 ## Banco de dados — Supabase
 1. Criar um projeto Supabase de teste.
@@ -76,7 +82,12 @@ Os testes de domínio cobrem crédito, estimativas, validação e busca. Os test
 5. Exchange & Trade-in.
 6. Exchange Program.
 
-Perfil e checkout complementam os seis layouts para concluir os fluxos. [Mapa de navegação](docs/FLUXOS.md) · [Decisões técnicas e bibliotecas](docs/DECISOES-TECNICAS.md)
+7. Perfil / Meu capítulo.
+8. Checkout simulado.
+9. Detalhe de uma peça enviada.
+10. Detalhe de uma solicitação de troca.
+
+As quatro telas complementares reutilizam a identidade dos seis layouts originais. [Mapa de navegação](docs/FLUXOS.md) · [Decisões técnicas e bibliotecas](docs/DECISOES-TECNICAS.md)
 
 ## Estrutura
 
@@ -84,7 +95,7 @@ Perfil e checkout complementam os seis layouts para concluir os fluxos. [Mapa de
 App.tsx                    Navegação e coordenação do estado
 index.ts                   Entrada Expo
 src/components/            Componentes visuais e marca
-src/screens/               Seis telas + Perfil e Checkout
+src/screens/               Dez telas, incluindo detalhes de envio e troca
 src/data/products.json     Catálogo mockado
 src/domain/rules.ts        Regras testáveis
 src/services/              Persistência local e Supabase
@@ -96,7 +107,7 @@ docs/                      CP4, CP5, roteiros e evidências
 ```
 
 ## Referência visual
-[Figma fornecido pelo grupo](https://www.figma.com/design/JpMUPu4txwKTUpDvjHxelR/Next-Chapter-%E2%80%94-App-Prototype--c%C3%B3pia-?node-id=0-1). A implementação usa as duas capturas fornecidas, pois o arquivo não pôde ser acessado. Fontes e tokens são aproximações; o símbolo não é o SVG original. O programa recebeu controles funcionais na área inferior originalmente vazia.
+[Figma fornecido pelo grupo](https://www.figma.com/design/JpMUPu4txwKTUpDvjHxelR/Next-Chapter-%E2%80%94-App-Prototype--c%C3%B3pia-?node-id=0-1). A implementação usa as duas capturas fornecidas, pois o arquivo não pôde ser acessado. Fontes e tokens são aproximações; o símbolo não é o SVG original. Alterações solicitadas pelo grupo: fotos padronizadas, cards rosas de vendas e trocas, galerias de detalhes e histórico no Exchange Program. O ícone vetorial de troca fica dentro do círculo oliva e o botão principal diz “Realizar uma nova troca”.
 
 ## Repositório GitHub
 

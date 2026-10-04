@@ -19,10 +19,12 @@ Compra, venda assistida e troca de bolsas de luxo seminovas em uma experiência 
 3. Detalhe com conservação, ano, tamanho, autenticação simulada e favorito.
 4. Venda com marca/modelo, quatro a oito fotos da galeria, conservação e estimativa simulada.
 5. Trade-in com saldo inicial demonstrativo de R$ 1.240, peças elegíveis e uso de crédito no checkout.
-6. Exchange Program com informações e solicitação de troca.
+6. Exchange Program com histórico, seções de solicitações/trocas realizadas e botão Realizar uma nova troca.
 7. Checkout de demonstração: aplica crédito disponível, calcula diferença e registra pedido sem pagamento real.
-8. Perfil demonstrativo: favoritos, carteira, vendas, compras e trocas persistidos.
-9. Repositório de dados local e adaptador Supabase com SQL, RLS e armazenamento privado de fotos.
+8. Perfil demonstrativo: favoritos, carteira, compras e cards rosas clicáveis de vendas e trocas persistidas.
+9. Detalhe de peça enviada com galeria de fotos, conservação, status, estimativa, código e data.
+10. Detalhe de troca com foto ilustrativa da peça, status, estimativa de crédito, código e data.
+11. Repositório de dados local e adaptador Supabase com SQL, RLS e armazenamento privado de fotos.
 
 ## Regras
 - Valores monetários são inteiros em centavos.
@@ -31,7 +33,9 @@ Compra, venda assistida e troca de bolsas de luxo seminovas em uma experiência 
 - Estimativa-base Excelente: R$ 3.500 a R$ 4.200. Novo: 115%; Bom: 80%; Usado: 60%. A fórmula não representa cotação de mercado.
 - Venda exige marca/modelo com 3 a 120 caracteres e 4 a 8 fotos de até 6 MB cada. Recomenda-se frente, verso, interior e etiqueta.
 - Solicitar troca registra o pedido; aprovação, taxa e concessão de novo crédito ficam para uma etapa posterior de curadoria.
-- Uma mesma peça não admite duas solicitações simultâneas de troca nesta demonstração.
+- Uma mesma peça não admite uma segunda solicitação de troca nesta demonstração, pois não há fluxo administrativo de encerramento e nova elegibilidade.
+- A seção Trocas realizadas permanece vazia: o banco registra solicitações, e a conclusão pela curadoria não está implementada.
+- Fotos de catálogo e peças elegíveis são seis assets locais ilustrativos; fotos enviadas na venda são persistidas por usuário e podem ser consultadas nos detalhes.
 - Compra admite uso parcial do crédito e nunca deixa saldo negativo. Pedidos têm chave de idempotência.
 
 ## Limites
