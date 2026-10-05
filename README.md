@@ -104,6 +104,8 @@ Para emulador Android: iniciar um AVD no Android Studio e executar `npm run andr
 
 ## Integração com Supabase
 
+Para configurar com instruções detalhadas e resolver dúvidas, consulte o [passo a passo de conexão com Supabase](GUIA-SUPABASE.md).
+
 1. Criar um projeto de demonstração no Supabase.
 2. Executar [schema.sql](supabase/schema.sql) e depois [seed.sql](supabase/seed.sql) no SQL Editor.
 3. Habilitar **Anonymous Sign-Ins** em Authentication.
@@ -261,4 +263,4 @@ As seis fotos são ilustrativas, empacotadas em `assets/products/`, sem links ex
 | Integração de banco | Supabase, SQL e evidências |
 | Simulação no navegador | Prints, vídeo da apresentação e galeria de testes |
 
-Toda a documentação de apresentação está concentrada neste README. Código, imagens, SQL, testes e evidências permanecem no repositório.
+A documentação de apresentação está concentrada neste README. O [guia de conexão com Supabase](GUIA-SUPABASE.md) complementa a configuração prática. Código, imagens, SQL, testes e evidências permanecem no repositório.
