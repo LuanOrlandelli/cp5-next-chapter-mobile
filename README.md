@@ -1,10 +1,9 @@
 # Next Chapter — Mobile Development e IoT
 
-**Toda peça merece um próximo capítulo.** Aplicativo acadêmico de compra, venda e troca de bolsas de luxo seminovas, construído em **React Native + Expo + TypeScript**. Entrega dos Checkpoints 4 e 5: seis telas inspiradas nas referências do Figma, protótipo navegável, dados mockados persistidos, integração Supabase implementada, testes e evidências de simulação no navegador Windows.
-
-> Status em 04/10/2026: protótipo com dez telas, persistência local ou Supabase, cards de vendas e trocas e consulta de fotos. Repositório publicado no GitHub e integração real verificada. Os 15 prints foram conferidos e o acesso ao vídeo e ao Figma foi confirmado pelo grupo em janela anônima. O logo foi reconstruído a partir da captura; o original é necessário para fidelidade exata.
+**Toda peça merece um próximo capítulo.** Aplicativo acadêmico de compra, venda e troca de bolsas de luxo seminovas, desenvolvido para os Checkpoints 4 e 5 com **React Native, Expo e TypeScript**. O protótipo reúne dez telas, dados mockados, persistência local ou Supabase, testes e simulação no navegador Windows.
 
 ## Integrantes
+
 | Nome | RM |
 | --- | --- |
 | Luan Orlandelli | 554747 |
@@ -14,51 +13,159 @@
 | Bruno Biletsky | 554739 |
 | Paulo Akira | 556840 |
 
-## Proposta
-Bolsas de luxo sem uso podem circular novamente, mas compradores e vendedores precisam de confiança, informações claras e uma experiência simples. A Next Chapter combina catálogo, venda assistida com curadoria e troca por crédito. Público-alvo: interessados em luxo circular e proprietários que desejam renovar sua coleção. Receita proposta: comissão sobre vendas e taxa administrativa nas trocas. O projeto não realiza cobranças nem autenticação comercial de peças.
+## Proposta do aplicativo
 
-[Escopo completo](docs/ESCOPO.md) · [Marca, paleta, tipografia, pitch e negócio](docs/MARCA-E-PITCH.md)
+Bolsas de luxo sem uso podem circular novamente, mas comprar ou vender uma peça seminova exige confiança, avaliação de conservação e informações claras. A Next Chapter reúne catálogo, venda assistida por curadoria e troca em uma experiência mobile.
 
-## Executar no Windows / navegador
-Pré-requisito: **Node.js 24 LTS** com npm. Na pasta deste README:
+O público-alvo são compradores interessados em luxo circular e proprietários que desejam vender ou renovar sua coleção. A proposta de valor combina informações sobre as peças, envio de fotos para avaliação e acompanhamento dos pedidos em um só aplicativo.
+
+O modelo de negócio proposto é acesso gratuito ao catálogo, comissão sobre vendas concluídas e taxa administrativa nas trocas. Uma comissão inicial de 15% é uma hipótese a validar: uma venda de R$ 5.400 geraria R$ 810 de receita bruta antes dos custos. O diferencial proposto é combinar venda assistida, catálogo especializado e Exchange, com foco em bolsas de luxo seminovas. A viabilidade comercial ainda depende de pesquisa com compradores e vendedores.
+
+**Pitch:** a Next Chapter transforma bolsas de luxo sem uso em novas histórias. Quem compra encontra peças com conservação informada; quem vende envia fotos e acompanha a curadoria; quem deseja renovar sua coleção solicita uma troca. O protótipo demonstra esses fluxos com dados fictícios e integração real com Supabase.
+
+## Funcionalidades e navegação
+
+| Tela | Funcionalidade |
+| --- | --- |
+| Splash | Identidade da marca e entrada pelo botão Começar |
+| Home / Catálogo | Quatro bolsas com fotos, preços, busca por marca/modelo e navegação inferior |
+| Detalhe do produto | Foto, descrição, estado, ano, tamanho, favorito e Comprar agora |
+| Vender minha bolsa | Marca/modelo, conservação, seleção de 4 a 8 fotos e estimativa de venda |
+| Exchange & Trade-in | Crédito disponível, peças elegíveis com fotos e acesso ao programa |
+| Exchange Program | Histórico de solicitações e botão Realizar uma nova troca |
+| Perfil / Meu capítulo | Saldo, favoritos, compras e cards rosas clicáveis de vendas e trocas |
+| Checkout | Compra simulada, aplicação opcional de crédito e cálculo da diferença |
+| Detalhe da peça enviada | Status, conservação, estimativa, código, data e galeria com miniaturas |
+| Detalhe da troca | Foto ilustrativa, status, crédito estimado, código e data |
+
+- **Compra:** Splash → Catálogo → Produto → Checkout → confirmação → Perfil.
+- **Venda:** Catálogo → Vender → fotos e dados → enviar → Perfil → card da venda → galeria.
+- **Troca:** Trade-in → Exchange Program → Realizar uma nova troca → selecionar peça → confirmar → histórico → detalhe.
+- **Favoritos:** Produto → favoritar → Perfil. Os dados permanecem após recarregar no mesmo navegador e endereço.
+
+O botão Voltar retorna à origem do fluxo, inclusive ao abrir detalhes pelo Perfil ou pelo histórico do programa.
+
+### Dados e regras da demonstração
+
+| Produto do catálogo | Preço fictício |
+| --- | --- |
+| Chanel Classic Flap | R$ 8.900 |
+| Louis Vuitton Neverfull MM | R$ 5.400 |
+| Dior Lady Dior | R$ 9.200 |
+| Gucci Marmont Small | R$ 4.100 |
+
+O saldo inicial fictício é R$ 1.240; as peças elegíveis são Louis Vuitton Speedy 30 e Michael Kors Selma, com estimativas de R$ 620 e R$ 310. Essas estimativas não aumentam automaticamente o saldo.
+
+Venda exige marca/modelo com 3 a 120 caracteres e 4 a 8 fotos de até 6 MB cada. A estimativa-base para conservação Excelente é R$ 3.500–R$ 4.200; Novo aplica 115%, Bom 80% e Usado 60%. São cálculos demonstrativos, sem cotação real de mercado. Valores são armazenados em centavos.
+
+A compra admite crédito parcial e nunca deixa saldo negativo. Pedidos são idempotentes para evitar duplicação. Uma peça não admite duas solicitações de troca. A solicitação recebe status **Solicitada**, sem conceder crédito automaticamente.
+
+O protótipo não realiza pagamentos, frete, autenticação comercial das bolsas ou aprovação administrativa. A seção **Trocas realizadas** permanece vazia porque não há fluxo de conclusão nesta entrega. Preços, selos e peças são fictícios. Não há integração com dispositivo IoT; os requisitos fornecidos aceitam simulação no navegador.
+
+## Identidade visual
+
+Next Chapter representa o próximo capítulo de uma peça com outra pessoa. A tipografia implementada é **Inter**, nos pesos 400, 500, 700 e 900, empacotada no app. O logo em SVG foi reconstruído a partir das telas de referência. As seis telas do Figma orientaram a identidade; Perfil, Checkout e detalhes de venda/troca complementam os fluxos.
+
+| Cor | Código | Aplicação |
+| --- | --- | --- |
+| Oliva | `#4B4D34` | Splash e cabeçalho |
+| Rosa | `#E58DB3` | Botões e cards |
+| Rosa claro | `#FFC5F1` | Símbolo da marca |
+| Creme | `#F4E6DA` | Fundo das telas |
+| Marrom | `#4B342B` | Texto e cabeçalhos |
+| Areia | `#ACA077` | Elementos secundários |
+| Rosa antigo | `#C67D97` | Trade-in |
+| Verde | `#778653` | Selos e crédito |
+| Rosa escuro | `#C6537D` | Preços |
+| Branco | `#FFFFFF` | Fotos e campos |
+
+## Links da apresentação
+
+- [Repositório público no GitHub](https://github.com/LuanOrlandelli/cp5-next-chapter-mobile).
+- [Vídeo de demonstração no Google Drive](https://drive.google.com/file/d/1G6LfKHhAdkCW3e-8JkhPuDJJDvbkFPOv/view?usp=sharing).
+- [Protótipo no Figma](https://www.figma.com/design/JpMUPu4txwKTUpDvjHxelR/Next-Chapter-%E2%80%94-App-Prototype?node-id=0-1&t=NfwugDCNd9QBRdyS-1).
+
+O grupo confirmou em 04/10/2026 que vídeo e Figma abrem em janela anônima. O repositório está público.
+
+## Executar o projeto
+
+Pré-requisito: **Node.js 24 LTS com npm**. Na pasta do projeto:
 
 ```bash
 npm ci
 npm run web
 ```
 
-Acesse **http://localhost:8081**: `npm run web` fixa essa porta. O navegador apresenta uma coluna mobile de até 390 px. Se a porta estiver ocupada, encerre o servidor anterior deste projeto antes de reiniciar. Sem variáveis Supabase, o app usa JSON local e armazenamento persistente no navegador.
+Abra **http://localhost:8081**. O navegador exibe uma coluna mobile de até 390 px. Se a porta estiver ocupada, encerre o servidor anterior do projeto antes de reiniciar.
 
-Use sempre o mesmo endereço e navegador para manter a sessão. Trocar a porta, usar `127.0.0.1` ou abrir uma janela anônima pode apresentar outro histórico. `npm run web -- --clear` limpa o cache do Expo, não a sessão nem os dados do navegador. Após alterar `.env`, reinicie o Expo.
+Sem variáveis Supabase, o app usa catálogo JSON e AsyncStorage. Use o mesmo navegador, host e porta para manter o histórico: outra porta ou janela anônima pode iniciar outra sessão. `npm run web -- --clear` limpa o cache do Expo, sem apagar os dados do navegador. Reinicie o Expo após alterar `.env`.
 
-Para emulador Android iniciado no Android Studio: `npm run android`. Para aparelho com Expo Go compatível com SDK 57: `npm start` e leia o QR Code. A validação desta entrega ocorreu no navegador Windows; não se afirma execução Android/iOS sem evidência.
+Para emulador Android: iniciar um AVD no Android Studio e executar `npm run android`. Para Expo Go compatível com SDK 57: executar `npm start` e ler o QR Code, com celular e computador na mesma rede. A simulação comprovada nesta entrega foi feita no navegador Windows.
 
-## Funcionalidades
-- Splash e catálogo com quatro bolsas coerentes com o protótipo.
-- Busca por marca/modelo, navegação e detalhe de todos os produtos.
-- Favoritos persistidos e Perfil com saldo, compras e cards rosas clicáveis de peças enviadas e trocas.
-- Venda: seleção real de 4 a 8 fotos, marca/modelo, conservação e estimativa simulada.
-- Trade-in com R$ 1.240 de crédito inicial fictício e duas peças elegíveis.
-- Detalhes de uma peça enviada: status, conservação, estimativa, código, data e galeria com foto ampliada e miniaturas selecionáveis.
-- Exchange Program com histórico de solicitações, seção de trocas realizadas e botão **Realizar uma nova troca**, com seleção de peça e prevenção de duplicatas.
-- Detalhes da troca: foto ilustrativa da peça, status, estimativa de crédito, código e data; retorno ao Perfil ou ao Exchange Program.
-- Checkout simulado com uso parcial de crédito, saldo atualizado e pedido persistido.
-- Supabase: catálogo, carteira, favoritos, curadorias, pedidos, trocas e fotos em Storage privado.
+## Integração com Supabase
 
-As fotos ilustrativas dos quatro produtos e das duas peças elegíveis são arquivos locais empacotados, padronizados com fundo branco e enquadramento centralizado. Fontes e descrição das edições com IA em [assets/products/README.md](assets/products/README.md). As fotos enviadas pelo usuário ficam no navegador em modo Local ou no Storage privado em modo Supabase; a galeria usa links assinados de uma hora para acesso autorizado.
+1. Criar um projeto de demonstração no Supabase.
+2. Executar [schema.sql](supabase/schema.sql) e depois [seed.sql](supabase/seed.sql) no SQL Editor.
+3. Habilitar **Anonymous Sign-Ins** em Authentication.
+4. Copiar [.env.example](.env.example) para `.env` e preencher:
 
-Os selos de autenticação, preços, estimativas e peças são dados de demonstração. Solicitar troca não concede crédito nem conclui a troca automaticamente. O banco atual registra o status **Solicitada**; não há fluxo administrativo de aprovação/conclusão. A seção **Trocas realizadas** fica vazia nesta demonstração. Não há gateway de pagamento ou frete.
+```env
+EXPO_PUBLIC_SUPABASE_URL=https://SEU-PROJETO.supabase.co
+EXPO_PUBLIC_SUPABASE_ANON_KEY=SUA_CHAVE_PUBLICA_ANON_OU_PUBLISHABLE
+```
 
-## Banco de dados — Supabase
-1. Criar um projeto Supabase de teste.
-2. Executar `supabase/schema.sql` e `supabase/seed.sql` no SQL Editor.
-3. Habilitar Anonymous Sign-Ins em Authentication.
-4. Copiar `.env.example` para `.env` e preencher URL e chave pública anon/publishable.
-5. Reiniciar Expo e executar `npm run test:supabase`.
+5. Reiniciar o Expo, abrir Perfil e verificar **Dados: Supabase**.
+6. Executar `npm run test:supabase` para verificar a integração real.
 
-[Guia detalhado do banco, tabelas, RLS e verificação real](docs/SUPABASE.md). Nunca incluir service_role ou senha do banco no cliente. `.env` não entra no Git. Em modo Supabase, uma falha de conexão aparece como erro; o app não muda silenciosamente para dados locais.
+O `.env` não é versionado. Use apenas URL e chave pública no cliente; senha do banco e chave `service_role` não entram no aplicativo. Configuração parcial ou falha remota apresenta erro, sem mudar silenciosamente para dados locais.
 
-## Testes
+| Tabela | Dados |
+| --- | --- |
+| `products` | Catálogo fictício |
+| `wallets` | Crédito por usuário |
+| `eligible_pieces` | Peças elegíveis |
+| `favorites` | Produtos favoritos |
+| `sales` | Curadorias, estimativas e caminhos das fotos |
+| `orders` | Compras simuladas |
+| `exchanges` | Solicitações de troca |
+
+A sessão anônima identifica cada usuário, e políticas **RLS** isolam seus registros. `initialize_demo` cria o saldo uma única vez; `place_demo_order` calcula a compra e atualiza a carteira em transação; `request_demo_exchange` valida a peça e impede duplicatas. O banco recalcula a estimativa de venda por trigger.
+
+As fotos do catálogo são assets locais associados aos IDs. As fotos enviadas pelo usuário ficam no bucket privado **sale-photos**, em pastas por usuário/envio; a galeria usa URLs assinadas de uma hora. Perder a sessão anônima não apaga a venda do banco, mas impede acessar seu histórico nessa nova sessão. Cadastro e recuperação de conta são evoluções futuras.
+
+## Arquitetura e bibliotecas
+
+React Native + Expo SDK 57 + TypeScript compartilham a interface com o navegador por React Native Web. `App.tsx` controla uma pilha simples de navegação e o estado; componentes, telas, regras e persistência ficam separados. A navegação não sincroniza a URL nem implementa deep links.
+
+```text
+App.tsx                    Navegação e estado
+src/screens/               Dez telas
+src/components/            Componentes reutilizáveis e marca
+src/theme.ts               Cores e tipografia
+src/data/                  Catálogo JSON e mapeamento de fotos
+src/domain/rules.ts        Regras de negócio
+src/services/              Persistência local e Supabase
+supabase/                  Schema, funções, RLS e seed
+tests/                     Testes de domínio, banco e interface
+scripts/                   Verificação remota e evidências
+assets/evidencias/         Prints da apresentação
+docs/evidence/             Evidências automatizadas
+```
+
+| Biblioteca | Finalidade |
+| --- | --- |
+| React Native Web / React DOM | Execução no navegador |
+| Expo ImagePicker | Seleção de fotos |
+| AsyncStorage | Dados locais e sessão persistente |
+| Supabase JS | Banco, autenticação anônima e Storage |
+| React Native SVG | Logo e ícone de troca |
+| Expo Font / Inter | Tipografia empacotada |
+| Safe Area Context | Áreas seguras do aparelho |
+| tsx / node:test | Testes de regras |
+| PGlite | Testes SQL em PostgreSQL embarcado |
+| Playwright | Testes de interface, prints e vídeos |
+
+## Testes e validação
 
 ```bash
 npm run typecheck
@@ -67,132 +174,91 @@ npm run test:db
 npx playwright install chromium
 npm run test:e2e
 npm run evidence
+npm run test:supabase
 npm run build:web
 ```
 
-Os testes de domínio cobrem crédito, estimativas, validação e busca. Os testes SQL executam schema, seed e políticas em PostgreSQL embarcado com auth/storage mínimos de teste. Os seis testes Playwright executam navegação, troca, favoritos, busca, compra, fotos e persistência no Chromium. Esses testes locais não substituem a verificação do Supabase real.
+| Verificação registrada em 02–04/10/2026 | Resultado |
+| --- | --- |
+| TypeScript | Aprovado |
+| Regras de negócio | 12 testes aprovados |
+| SQL, funções e RLS | 9 subcenários aprovados |
+| Interface Chromium | 6 testes aprovados; venda e troca reexecutadas após alterações |
+| Expo Doctor | 21/21 verificações aprovadas |
+| Exportação web | Build gerado |
+| Supabase real | Catálogo, carteira, favoritos, fotos privadas, venda, compra, troca e isolamento verificados |
 
-[Roteiro manual e apresentação](docs/TESTES-MANUAIS.md) · [Relatório de validação e evidências](docs/VALIDACAO.md)
+Os testes de interface usam dados locais e porta isolada, normalmente 8082, configurável por `E2E_PORT`. Os testes SQL usam estruturas mínimas de Auth/Storage; a conexão remota foi verificada separadamente. `test:supabase` cria duas sessões e registros fictícios em um projeto de teste, que permanecem no banco.
 
-## Telas e fluxos
-1. Splash / Introdução.
-2. Home / Catálogo.
-3. Detalhe do produto.
-4. Vender minha bolsa.
-5. Exchange & Trade-in.
-6. Exchange Program.
+Evidências: [galeria de testes com prints e vídeos](docs/evidence/index.html) e [resultado da integração Supabase](docs/evidence/12-supabase-integration.txt). A validação foi realizada no Windows/Chromium; Android e iOS não são declarados como testados.
 
-7. Perfil / Meu capítulo.
-8. Checkout simulado.
-9. Detalhe de uma peça enviada.
-10. Detalhe de uma solicitação de troca.
+### Roteiro manual de apresentação e teste
 
-As quatro telas complementares reutilizam a identidade dos seis layouts originais. [Mapa de navegação](docs/FLUXOS.md) · [Decisões técnicas e bibliotecas](docs/DECISOES-TECNICAS.md)
+| Ação | Resultado esperado |
+| --- | --- |
+| Começar, buscar marca e abrir produto | Catálogo, filtro e detalhes coerentes |
+| Favoritar e recarregar | Favorito permanece no Perfil |
+| Enviar venda sem dados ou com menos de 4 fotos | Validação bloqueia envio |
+| Preencher venda, escolher conservação e enviar 4 fotos | Estimativa e card persistido no Perfil |
+| Abrir card de venda e selecionar miniaturas | Fotos e informações correspondentes |
+| Solicitar troca e abrir card pelo programa/Perfil | Histórico, detalhes e retorno à origem |
+| Solicitar novamente a mesma peça | Duplicata bloqueada |
+| Comprar Chanel usando R$ 1.240 de crédito | Diferença R$ 7.660; saldo zero e pedido persistido |
+| Comprar sem crédito | Preço integral; saldo preservado |
+| Recarregar no mesmo endereço e navegador | Histórico permanece |
+| Conferir tabelas e Storage | Registros e fotos persistidos |
+| Usar duas sessões distintas | Dados privados isolados por usuário |
 
-## Estrutura
-
-```text
-App.tsx                    Navegação e coordenação do estado
-index.ts                   Entrada Expo
-src/components/            Componentes visuais e marca
-src/screens/               Dez telas, incluindo detalhes de envio e troca
-src/data/products.json     Catálogo mockado
-src/domain/rules.ts        Regras testáveis
-src/services/              Persistência local e Supabase
-src/theme.ts               Paleta e tipografia
-supabase/                  Schema, RLS, funções e seed
-scripts/                   Verificação Supabase e evidências
-tests/                     Domínio, banco e testes de navegador
-docs/                      CP4, CP5, roteiros e evidências
-```
-
-## Referência visual
-[Figma fornecido pelo grupo](https://www.figma.com/design/JpMUPu4txwKTUpDvjHxelR/Next-Chapter-%E2%80%94-App-Prototype?node-id=0-1&t=NfwugDCNd9QBRdyS-1), atualizado em 04/10/2026. A implementação usa as duas capturas fornecidas, pois o arquivo não pôde ser acessado pela ferramenta. Fontes e tokens são aproximações; o símbolo não é o SVG original. Alterações solicitadas pelo grupo: fotos padronizadas, cards rosas de vendas e trocas, galerias de detalhes e histórico no Exchange Program. O ícone vetorial de troca fica dentro do círculo oliva e o botão principal diz “Realizar uma nova troca”.
-
-## Repositório GitHub
-
-[CP5 Next Chapter Mobile](https://github.com/LuanOrlandelli/cp5-next-chapter-mobile) — repositório público na conta LuanOrlandelli, com visibilidade confirmada pela API do GitHub em 04/10/2026. Código, README, SQL, testes e evidências estão versionados e disponíveis ao professor/grupo.
-
-Para atualizar a publicação: executar git add ., git commit e git push. As instruções abaixo também permitem publicar uma cópia em outra conta.
-
-### Publicar uma cópia
-O Git local deve ser inicializado na pasta deste README. Criar um repositório vazio na conta do grupo, obter a URL e executar:
-
-```bash
-git remote add origin https://github.com/SEU-USUARIO/next-chapter-mobile.git
-git push -u origin main
-```
-
-Se ainda não houver commit local, executar antes: `git add .` e `git commit -m "feat: prototipo Next Chapter CP4 e CP5"`. Depois conferir no GitHub o README, os documentos, os SQL e `docs/evidence`. Não versionar node_modules, .env ou pastas de build/teste temporárias. A publicação na conta indicada foi realizada e verificada.
-
-## Conferência para entrega
-[Checklist CP4/CP5 com evidências e pendências](docs/CHECKLIST-ENTREGA.md). Integração real Supabase verificada e repositório público. O projeto é acadêmico; não representa uma operação comercial ativa.
+Para apresentar em 2–3 minutos: mostrar catálogo e produto, enviar uma venda com quatro fotos, abrir a galeria pelo Perfil, solicitar troca e abrir o histórico, demonstrar compra com crédito e recarregar. Finalizar com os registros no Supabase e evidências dos testes.
 
 ## Prints da versão final
 
-Os **15 prints foram adicionados e conferidos em 04/10/2026** na pasta **`assets/evidencias/`**. Os links abaixo abrem as capturas da versão atual do aplicativo e do Supabase. Para substituir alguma captura, salve um PNG com o mesmo nome e faça commit/push.
+Os 15 prints estão em `assets/evidencias/`. Clique no nome para abrir a captura.
 
-Use o app em `http://localhost:8081`, no mesmo navegador, com uma janela mobile próxima de 390 × 844. Faça uma venda com quatro fotos, solicite uma troca e realize uma compra simulada para preencher os históricos antes das capturas. Se necessário, role a tela e use captura de página inteira para mostrar o conteúdo.
+| Tela / evidência | Print |
+| --- | --- |
+| Splash | [01-tela-inicial.png](assets/evidencias/01-tela-inicial.png) |
+| Catálogo | [02-catalogo.png](assets/evidencias/02-catalogo.png) |
+| Detalhe do produto | [03-detalhe-produto.png](assets/evidencias/03-detalhe-produto.png) |
+| Formulário de venda | [04-vender-bolsa.png](assets/evidencias/04-vender-bolsa.png) |
+| Exchange & Trade-in | [05-trade-in.png](assets/evidencias/05-trade-in.png) |
+| Exchange Program | [06-exchange-program.png](assets/evidencias/06-exchange-program.png) |
+| Nova troca | [07-nova-troca.png](assets/evidencias/07-nova-troca.png) |
+| Checkout | [08-checkout.png](assets/evidencias/08-checkout.png) |
+| Perfil | [09-perfil.png](assets/evidencias/09-perfil.png) |
+| Detalhe da venda | [10-detalhe-venda.png](assets/evidencias/10-detalhe-venda.png) |
+| Detalhe da troca | [11-detalhe-troca.png](assets/evidencias/11-detalhe-troca.png) |
+| Produtos no Supabase | [12-supabase-products.png](assets/evidencias/12-supabase-products.png) |
+| Vendas no Supabase | [13-supabase-sales.png](assets/evidencias/13-supabase-sales.png) |
+| Trocas no Supabase | [14-supabase-exchanges.png](assets/evidencias/14-supabase-exchanges.png) |
+| Fotos no Storage | [15-supabase-storage.png](assets/evidencias/15-supabase-storage.png) |
 
-### Telas e fluxos do aplicativo — passo 2
+O formulário foi capturado antes do preenchimento e o checkout antes da compra, com crédito desativado. Os vídeos automatizados complementam esses prints. O Storage mostra quatro fotos de outro envio de teste; Perfil, detalhe de venda e tabela `sales` mostram a Prada apresentada.
 
-| Print | O que mostrar | Arquivo / link |
-| --- | --- | --- |
-| Tela inicial / Splash | Logo, nome e botão Começar | [assets/evidencias/01-tela-inicial.png](assets/evidencias/01-tela-inicial.png) |
-| Home / Catálogo | Quatro bolsas com fotos padronizadas, preços e navegação | [assets/evidencias/02-catalogo.png](assets/evidencias/02-catalogo.png) |
-| Detalhe do produto | Foto, marca, modelo, preço, informações e Comprar agora | [assets/evidencias/03-detalhe-produto.png](assets/evidencias/03-detalhe-produto.png) |
-| Vender minha bolsa | Formulário com seleção de fotos, marca/modelo, conservação e estimativa | [assets/evidencias/04-vender-bolsa.png](assets/evidencias/04-vender-bolsa.png) |
-| Exchange & Trade-in | Crédito e fotos da Speedy e da Selma | [assets/evidencias/05-trade-in.png](assets/evidencias/05-trade-in.png) |
-| Exchange Program | Ícone no círculo, histórico com card de solicitação e Realizar uma nova troca | [assets/evidencias/06-exchange-program.png](assets/evidencias/06-exchange-program.png) |
-| Nova solicitação de troca | Modal com etapas, seleção da peça e botão de confirmação | [assets/evidencias/07-nova-troca.png](assets/evidencias/07-nova-troca.png) |
-| Checkout | Bolsa, crédito disponível, opção de usar crédito, valor e confirmação de compra simulada | [assets/evidencias/08-checkout.png](assets/evidencias/08-checkout.png) |
-| Perfil / Meu capítulo | Dados: Supabase, saldo e cards rosas de peças enviadas e trocas | [assets/evidencias/09-perfil.png](assets/evidencias/09-perfil.png) |
-| Detalhe da peça enviada | Foto ampliada, miniaturas, status, estado, estimativa e código | [assets/evidencias/10-detalhe-venda.png](assets/evidencias/10-detalhe-venda.png) |
-| Detalhe da troca | Foto da peça, status Solicitada, crédito estimado, código e data | [assets/evidencias/11-detalhe-troca.png](assets/evidencias/11-detalhe-troca.png) |
+## Fontes das fotos
 
-A seção Trocas realizadas pode mostrar zero: a demonstração registra solicitações e não executa a conclusão administrativa. Não é necessário inventar uma troca concluída para o print. Se o Perfil não couber em uma imagem, faça uma captura de página inteira.
+As seis fotos são ilustrativas, empacotadas em `assets/products/`, sem links externos em tempo de execução. As versões `*-standard.png` foram editadas com IA para padronizar fundo branco, enquadramento e margens; os JPG originais foram preservados. As imagens não comprovam autenticidade ou conservação. Os direitos pertencem aos respectivos titulares; não há vínculo comercial com as marcas.
 
-### Integração Supabase — passo 3
+| Referência | Fonte |
+| --- | --- |
+| Chanel Classic | [CHANEL](https://www.chanel.com/us/fashion/p/A01112Y0129594305/classic-11-12-handbag-lambskin-gold-tone-metal/) |
+| Louis Vuitton Neverfull MM | [Louis Vuitton](https://es.louisvuitton.com/esp-es/productos/bolso-neverfull-mm-monogram-nvprod5350101v/M46975) |
+| Dior Lady Dior | [Dior](https://www.dior.com/en_us/fashion/products/M0565OGWH_M900) |
+| Gucci Marmont Small | [Farfetch](https://www.farfetch.com/uk/shopping/women/gucci-small-gg-marmont-shoulder-bag-item-24099590.aspx) |
+| Louis Vuitton Speedy 30 | [Fashionphile](https://www.fashionphile.com/products/louis-vuitton-monogram-speedy-30-571759) |
+| Michael Kors Selma | [SPERA.de](https://www.spera.de), via [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Michael_Kors_Selma_LG_TZ_Satchel_Handtasche_30T3MLMS7T_Kalbsleder_schwarz_-_grau_black_-_pearl_grey_(1)_(16399888809).jpg), [CC BY 2.0](https://creativecommons.org/licenses/by/2.0/); fundo e enquadramento alterados com IA |
 
-Abra o projeto Supabase correspondente ao `.env`. As capturas devem mostrar os registros da demonstração que você acabou de realizar, não apenas uma tabela vazia.
+## Entrega CP4 e CP5
 
-| Print | O que mostrar | Arquivo / link |
-| --- | --- | --- |
-| Catálogo no banco | Table Editor → products, com os quatro produtos | [assets/evidencias/12-supabase-products.png](assets/evidencias/12-supabase-products.png) |
-| Venda no banco | Table Editor → sales, com a peça enviada e o código correspondente ao Perfil | [assets/evidencias/13-supabase-sales.png](assets/evidencias/13-supabase-sales.png) |
-| Solicitação de troca no banco | Table Editor → exchanges, com peça, status e data | [assets/evidencias/14-supabase-exchanges.png](assets/evidencias/14-supabase-exchanges.png) |
-| Fotos persistidas | Storage → sale-photos → pasta do usuário → código do envio, com os quatro arquivos | [assets/evidencias/15-supabase-storage.png](assets/evidencias/15-supabase-storage.png) |
+| Requisito | Local nesta entrega |
+| --- | --- |
+| Problema, público, proposta, pitch e negócio | Proposta do aplicativo |
+| Marca, logo, cores e tipografia | Identidade visual, Splash e Figma |
+| Repositório e estrutura inicial | GitHub público e arquitetura |
+| Protótipo com dados mockados | Dez telas e fluxos de compra, venda e troca |
+| Ambiente de teste | Comandos, resultados e roteiro manual |
+| Documentação de navegação e decisões técnicas | Este README |
+| Integração de banco | Supabase, SQL e evidências |
+| Simulação no navegador | Prints, vídeo da apresentação e galeria de testes |
 
-Não inclua a tela do `.env`, senhas, tokens ou chaves nas capturas. O banco e o Storage continuam privados conforme as políticas do aplicativo; publicar esses prints de dados fictícios não altera as permissões.
-
-Conferência: a venda `muu9babb-t4r6gcs6` aparece no Perfil, nos detalhes da Prada e na tabela `sales`; a solicitação da Speedy aparece no programa, no Perfil, nos detalhes e em `exchanges`. O print do Storage mostra quatro arquivos de outro envio de teste, `muuahn7r-ue4lhmai`, também presente em `sales`. Ele comprova o armazenamento, mas não representa as fotos da Prada. O checkout foi capturado antes da compra, com crédito desativado; essa sessão ainda mostra zero compras no Perfil. A compra com crédito está demonstrada pelas evidências automatizadas anteriores e pode ser incluída no vídeo final.
-
-### Vídeo e Figma — passos 2 e 4
-
-Links do vídeo e do Figma inseridos; acesso em janela anônima confirmado pelo grupo em 04/10/2026.
-
-- **Vídeo de demonstração:** [Assistir à demonstração no Google Drive](https://drive.google.com/file/d/1G6LfKHhAdkCW3e-8JkhPuDJJDvbkFPOv/view?usp=sharing), enviado pelo grupo em 04/10/2026. Acesso em janela anônima confirmado pelo grupo em 04/10/2026. O conteúdo do vídeo não foi revisado pela ferramenta.
-- **Figma da entrega:** [Next Chapter — App Prototype](https://www.figma.com/design/JpMUPu4txwKTUpDvjHxelR/Next-Chapter-%E2%80%94-App-Prototype?node-id=0-1&t=NfwugDCNd9QBRdyS-1). Acesso em janela anônima confirmado pelo grupo em 04/10/2026.
-
-O vídeo deve mostrar o aplicativo funcionando: navegação, envio com fotos, abertura dos cards e da galeria, solicitação de troca, histórico, compra com crédito e recarregamento para comprovar persistência. Termine mostrando os registros correspondentes no Supabase. O endereço atualizado do Figma também está na seção Referência visual. O grupo confirmou que ambos os links abrem em janela anônima.
-
-### Conferência dos links e publicação
-
-- [x] Todos os 15 PNG acima foram salvos, conferidos e incluídos no repositório.
-- [x] Link do vídeo preenchido.
-- [x] Acesso ao vídeo confirmado pelo grupo em janela anônima em 04/10/2026.
-- [ ] Conferir se o conteúdo do vídeo demonstra os fluxos descritos acima.
-- [x] Link final do Figma preenchido e acesso confirmado pelo grupo em janela anônima em 04/10/2026.
-- [x] Repositório GitHub público, com acesso sem convite confirmado em 04/10/2026.
-
-Adicionar os arquivos e links permite preencher as evidências, mas não concede acesso automaticamente ao GitHub, Drive ou Figma. Teste os links e marque os itens depois dessa conferência.
-
-Na pasta deste README, após salvar os prints e preencher os links:
-
-```bash
-git add README.md assets/evidencias docs/CHECKLIST-ENTREGA.md
-git commit -m "docs: adicionar evidencias finais da entrega"
-git push origin main
-```
-
-As evidências anteriores de testes continuam em [docs/evidence](docs/evidence/index.html). Os prints manuais acima usam uma pasta separada para não serem sobrescritos ao executar os testes. Um ZIP atualizado, se exigido, continua sendo uma etapa adicional.
+Toda a documentação de apresentação está concentrada neste README. Código, imagens, SQL, testes e evidências permanecem no repositório.
