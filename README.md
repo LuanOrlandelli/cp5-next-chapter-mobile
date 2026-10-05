@@ -213,25 +213,25 @@ Para apresentar em 2–3 minutos: mostrar catálogo e produto, enviar uma venda 
 
 ## Prints da versão final
 
-Os 15 prints estão em `assets/evidencias/`. Clique no nome para abrir a captura.
+Os 15 prints estão em `assets/evidencias/`. As capturas aparecem diretamente abaixo.
 
 | Tela / evidência | Print |
 | --- | --- |
-| Splash | [01-tela-inicial.png](assets/evidencias/01-tela-inicial.png) |
-| Catálogo | [02-catalogo.png](assets/evidencias/02-catalogo.png) |
-| Detalhe do produto | [03-detalhe-produto.png](assets/evidencias/03-detalhe-produto.png) |
-| Formulário de venda | [04-vender-bolsa.png](assets/evidencias/04-vender-bolsa.png) |
-| Exchange & Trade-in | [05-trade-in.png](assets/evidencias/05-trade-in.png) |
-| Exchange Program | [06-exchange-program.png](assets/evidencias/06-exchange-program.png) |
-| Nova troca | [07-nova-troca.png](assets/evidencias/07-nova-troca.png) |
-| Checkout | [08-checkout.png](assets/evidencias/08-checkout.png) |
-| Perfil | [09-perfil.png](assets/evidencias/09-perfil.png) |
-| Detalhe da venda | [10-detalhe-venda.png](assets/evidencias/10-detalhe-venda.png) |
-| Detalhe da troca | [11-detalhe-troca.png](assets/evidencias/11-detalhe-troca.png) |
-| Produtos no Supabase | [12-supabase-products.png](assets/evidencias/12-supabase-products.png) |
-| Vendas no Supabase | [13-supabase-sales.png](assets/evidencias/13-supabase-sales.png) |
-| Trocas no Supabase | [14-supabase-exchanges.png](assets/evidencias/14-supabase-exchanges.png) |
-| Fotos no Storage | [15-supabase-storage.png](assets/evidencias/15-supabase-storage.png) |
+| Splash | <img src="assets/evidencias/01-tela-inicial.png" alt="01-tela-inicial" width="300"> |
+| Catálogo | <img src="assets/evidencias/02-catalogo.png" alt="02-catalogo" width="300"> |
+| Detalhe do produto | <img src="assets/evidencias/03-detalhe-produto.png" alt="03-detalhe-produto" width="300"> |
+| Formulário de venda | <img src="assets/evidencias/04-vender-bolsa.png" alt="04-vender-bolsa" width="300"> |
+| Exchange & Trade-in | <img src="assets/evidencias/05-trade-in.png" alt="05-trade-in" width="300"> |
+| Exchange Program | <img src="assets/evidencias/06-exchange-program.png" alt="06-exchange-program" width="300"> |
+| Nova troca | <img src="assets/evidencias/07-nova-troca.png" alt="07-nova-troca" width="300"> |
+| Checkout | <img src="assets/evidencias/08-checkout.png" alt="08-checkout" width="300"> |
+| Perfil | <img src="assets/evidencias/09-perfil.png" alt="09-perfil" width="300"> |
+| Detalhe da venda | <img src="assets/evidencias/10-detalhe-venda.png" alt="10-detalhe-venda" width="300"> |
+| Detalhe da troca | <img src="assets/evidencias/11-detalhe-troca.png" alt="11-detalhe-troca" width="300"> |
+| Produtos no Supabase | <img src="assets/evidencias/12-supabase-products.png" alt="12-supabase-products" width="300"> |
+| Vendas no Supabase | <img src="assets/evidencias/13-supabase-sales.png" alt="13-supabase-sales" width="300"> |
+| Trocas no Supabase | <img src="assets/evidencias/14-supabase-exchanges.png" alt="14-supabase-exchanges" width="300"> |
+| Fotos no Storage | <img src="assets/evidencias/15-supabase-storage.png" alt="15-supabase-storage" width="300"> |
 
 O formulário foi capturado antes do preenchimento e o checkout antes da compra, com crédito desativado. Os vídeos automatizados complementam esses prints. O Storage mostra quatro fotos de outro envio de teste; Perfil, detalhe de venda e tabela `sales` mostram a Prada apresentada.
 
