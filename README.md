@@ -1,6 +1,31 @@
-# Next Chapter — Mobile Development e IoT
+# Next Chapter — CP4, CP5 e CP6
 
-**Toda peça merece um próximo capítulo.** Aplicativo acadêmico de compra, venda e troca de bolsas de luxo seminovas, desenvolvido para os Checkpoints 4 e 5 com **React Native, Expo e TypeScript**. O protótipo reúne dez telas, dados mockados, persistência local ou Supabase, testes e simulação no navegador Windows.
+**Mobile Development e IoT · React Native + Expo + TypeScript**
+
+**Toda peça merece um próximo capítulo.** Aplicativo acadêmico de compra, venda e troca de bolsas de luxo seminovas. O projeto reúne dez telas, dados fictícios, persistência local ou Supabase, testes, simulação web e geração de APK Android pelo GitHub Actions.
+
+## Acesso rápido
+
+| Quero… | Onde encontrar |
+| --- | --- |
+| Entender a proposta | [Sobre o aplicativo](#proposta-do-aplicativo) |
+| Abrir no computador | [Como rodar localmente](#como-rodar-localmente) |
+| Configurar o banco | [Integração com Supabase](#integração-com-supabase) |
+| Gerar um novo APK | [Como gerar o APK](#como-gerar-o-apk) |
+| Baixar e instalar no celular | [Como baixar e instalar o APK](#como-baixar-e-instalar-o-apk) |
+| Executar as verificações | [Testes e validação](#testes-e-validação) |
+| Ver as telas | [Prints da versão final](#prints-da-versão-final) |
+| Abrir vídeo e Figma | [Links da apresentação](#links-da-apresentação) |
+
+## Evolução por checkpoint
+
+| Etapa | Conteúdo do projeto |
+| --- | --- |
+| CP4 — Idealização | Problema, público-alvo, proposta de valor, marca, pitch, modelo de negócio e referência no Figma |
+| CP5 — Protótipo funcional | Telas navegáveis, dados mockados, persistência Supabase, testes e evidências no navegador |
+| CP6 — Aplicativo Android | Workflow de geração de APK, download pelo GitHub Actions e instalação no celular |
+
+A seção CP6 descreve a evolução Android realizada neste repositório. Os critérios oficiais do CP6 não foram fornecidos, portanto esta tabela não declara atendimento a um enunciado ainda não recebido.
 
 ## Integrantes
 
@@ -62,23 +87,6 @@ A compra admite crédito parcial e nunca deixa saldo negativo. Pedidos são idem
 
 O protótipo não realiza pagamentos, frete, autenticação comercial das bolsas ou aprovação administrativa. A seção **Trocas realizadas** permanece vazia porque não há fluxo de conclusão nesta entrega. Preços, selos e peças são fictícios. Não há integração com dispositivo IoT; os requisitos fornecidos aceitam simulação no navegador.
 
-## Identidade visual
-
-Next Chapter representa o próximo capítulo de uma peça com outra pessoa. A tipografia implementada é **Inter**, nos pesos 400, 500, 700 e 900, empacotada no app. O logo em SVG foi reconstruído a partir das telas de referência. As seis telas do Figma orientaram a identidade; Perfil, Checkout e detalhes de venda/troca complementam os fluxos.
-
-| Cor | Código | Aplicação |
-| --- | --- | --- |
-| Oliva | `#4B4D34` | Splash e cabeçalho |
-| Rosa | `#E58DB3` | Botões e cards |
-| Rosa claro | `#FFC5F1` | Símbolo da marca |
-| Creme | `#F4E6DA` | Fundo das telas |
-| Marrom | `#4B342B` | Texto e cabeçalhos |
-| Areia | `#ACA077` | Elementos secundários |
-| Rosa antigo | `#C67D97` | Trade-in |
-| Verde | `#778653` | Selos e crédito |
-| Rosa escuro | `#C6537D` | Preços |
-| Branco | `#FFFFFF` | Fotos e campos |
-
 ## Links da apresentação
 
 - [Repositório público no GitHub](https://github.com/LuanOrlandelli/cp5-next-chapter-mobile).
@@ -87,45 +95,49 @@ Next Chapter representa o próximo capítulo de uma peça com outra pessoa. A ti
 
 O grupo confirmou em 04/10/2026 que vídeo e Figma abrem em janela anônima. O repositório está público.
 
-## Executar o projeto
+## Como rodar localmente
 
-Pré-requisito: **Node.js 24 LTS com npm**. Na pasta do projeto:
+### 1. Preparar o ambiente
 
-```bash
-npm ci
-npm run web
+Instale **Node.js 24 LTS com npm** e baixe ou clone o repositório. Abra no terminal a pasta que contém `package.json` e `App.tsx`.
+
+No Windows, para o caminho usado neste projeto:
+
+```powershell
+cd C:\Users\luano\Downloads\CP5-Mobile\CP4-mobile-final-main
+npm.cmd ci
 ```
 
-Abra **http://localhost:8081**. O navegador exibe uma coluna mobile de até 390 px. Se a porta estiver ocupada, encerre o servidor anterior do projeto antes de reiniciar.
+Execute `npm.cmd ci` na primeira instalação ou após alterações nas dependências. Em outros sistemas, use `npm` no lugar de `npm.cmd`.
 
-Sem variáveis Supabase, o app usa catálogo JSON e AsyncStorage. Use o mesmo navegador, host e porta para manter o histórico: outra porta ou janela anônima pode iniciar outra sessão. `npm run web -- --clear` limpa o cache do Expo, sem apagar os dados do navegador. Reinicie o Expo após alterar `.env`.
+### 2. Abrir a pré-visualização no navegador
 
-Para emulador Android: iniciar um AVD no Android Studio e executar `npm run android`. Para Expo Go compatível com SDK 57: executar `npm start` e ler o QR Code, com celular e computador na mesma rede. A simulação comprovada nesta entrega foi feita no navegador Windows.
+```powershell
+npm.cmd run web
+```
 
-## Gerar e instalar o APK Android
+Abra **http://localhost:8081**. O navegador apresenta uma coluna mobile de até 390 px. Mantenha o terminal aberto; para encerrar o servidor, pressione **Ctrl+C**.
 
-### Baixar e instalar no celular
+Se a porta estiver ocupada, encerre o servidor anterior do projeto antes de iniciar outro. Para reiniciar limpando o cache do Expo:
 
-1. Entre na sua conta do GitHub e abra [Actions → Gerar APK Android](https://github.com/LuanOrlandelli/cp5-next-chapter-mobile/actions/workflows/android-apk.yml).
-2. Na lista de execuções, abra a **mais recente concluída com sucesso**, identificada pelo símbolo verde. Se a versão mais recente estiver em andamento, aguarde sua conclusão para baixar o aplicativo atualizado.
-3. Na página da execução, abra **Summary** e role até **Artifacts**, no final da página.
-4. Clique em **next-chapter-android-apk**. O download será um arquivo **`.zip`**; isso é esperado.
-5. Extraia o ZIP. Dentro dele estará **`next-chapter.apk`**; o arquivo `SHA256SUMS.txt` é apenas a referência de verificação do download.
-6. Se baixou pelo computador, envie o **APK extraído** para o celular Android, por cabo USB ou outro meio de sua preferência.
-7. No celular, abra `next-chapter.apk`. Se o Android solicitar, permita a instalação por essa origem e toque em **Instalar**.
-8. Abra **Next Chapter** na lista de aplicativos. Não é necessário Expo Go, Android Studio ou servidor no computador.
+```powershell
+npm.cmd run web -- --clear
+```
 
-É necessário estar conectado ao GitHub para baixar os artifacts. Uma execução vermelha não possui um APK válido dessa compilação; escolha a execução verde. Os arquivos ficam disponíveis por **30 dias**. Não é preciso criar uma release nem iniciar outro build para baixar um APK já disponível.
+### 3. Escolher o modo de dados
 
-### Gerar uma nova versão
+- **Local:** sem as duas variáveis Supabase, usa catálogo JSON e AsyncStorage. É suficiente para experimentar os fluxos sem configurar banco.
+- **Supabase:** configure o `.env` conforme a seção seguinte e reinicie o Expo. O Perfil deve mostrar **Dados: Supabase**.
 
-O workflow compila no GitHub Actions, sem conta Expo/EAS. Ele executa automaticamente após push na `main` com alterações no código, assets ou configuração do build. Alterações somente no README ou em outros arquivos `.md` não iniciam uma nova execução.
+Use o mesmo navegador, host e porta para manter o histórico. Outra porta, navegador ou janela anônima pode iniciar outra sessão. `--clear` limpa o cache do Expo, sem apagar o armazenamento do navegador.
 
-Para iniciar manualmente, abra **Actions → Gerar APK Android → Run workflow**, selecione `main` e confirme em **Run workflow**. Aguarde o símbolo verde e siga as instruções de download acima. Para receber mudanças no aplicativo instalado, baixe e instale o novo APK; ele não se atualiza automaticamente.
+### 4. Alternativas para desenvolvimento Android
 
-O APK inclui o JavaScript e funciona sem Expo Go ou computador ligado. Sem configuração adicional, usa dados locais. Para compilar conectado ao Supabase, abra **Settings → Secrets and variables → Actions → Variables** e crie as duas **Repository variables** `EXPO_PUBLIC_SUPABASE_URL` e `EXPO_PUBLIC_SUPABASE_ANON_KEY`, com os mesmos valores públicos usados no `.env`. Depois execute o workflow novamente. O `.env` do computador não é enviado ao GitHub. As variáveis públicas serão incorporadas ao APK; não use senha do banco ou chave secreta.
-
-O arquivo é um build release de demonstração, assinado com a chave de desenvolvimento do template Expo; publicação na Play Store exige assinatura própria. Os artifacts ficam disponíveis por 30 dias. Novos builds podem exigir desinstalar uma versão anterior caso a assinatura seja diferente; desinstalar remove a sessão e os dados locais.
+| Ambiente | Como iniciar |
+| --- | --- |
+| Emulador Android Studio | Inicie um AVD e execute `npm.cmd run android` |
+| Expo Go compatível com SDK 57 | Execute `npm.cmd start` e leia o QR Code; computador e celular devem estar na mesma rede |
+| APK instalado | Siga [Como baixar e instalar o APK](#como-baixar-e-instalar-o-apk); não precisa iniciar servidor |
 
 ## Integração com Supabase
 
@@ -159,6 +171,80 @@ O `.env` não é versionado. Use apenas URL e chave pública no cliente; senha d
 A sessão anônima identifica cada usuário, e políticas **RLS** isolam seus registros. `initialize_demo` cria o saldo uma única vez; `place_demo_order` calcula a compra e atualiza a carteira em transação; `request_demo_exchange` valida a peça e impede duplicatas. O banco recalcula a estimativa de venda por trigger.
 
 As fotos do catálogo são assets locais associados aos IDs. As fotos enviadas pelo usuário ficam no bucket privado **sale-photos**, em pastas por usuário/envio; a galeria usa URLs assinadas de uma hora. Perder a sessão anônima não apaga a venda do banco, mas impede acessar seu histórico nessa nova sessão. Cadastro e recuperação de conta são evoluções futuras.
+
+## Como gerar o APK
+
+O arquivo [.github/workflows/android-apk.yml](.github/workflows/android-apk.yml) configura a compilação no GitHub Actions, sem conta Expo/EAS. O APK incorpora o JavaScript e funciona sem Expo Go ou computador ligado.
+
+### 1. Definir se o APK usará Supabase
+
+Por padrão, sem variáveis no GitHub, o APK usa **dados locais**. Para usar o Supabase:
+
+1. Abra o repositório no GitHub.
+2. Entre em **Settings → Secrets and variables → Actions → Variables**.
+3. Crie duas **Repository variables**:
+
+| Nome | Valor |
+| --- | --- |
+| `EXPO_PUBLIC_SUPABASE_URL` | URL do seu projeto Supabase |
+| `EXPO_PUBLIC_SUPABASE_ANON_KEY` | Chave pública anon/publishable do mesmo projeto |
+
+O `.env` do computador não é enviado ao GitHub. Configure as duas variáveis ou deixe ambas vazias. As variáveis públicas são incorporadas ao APK; nunca use senha do banco, `service_role` ou secret key. Alterar essas variáveis exige gerar outro APK.
+
+### 2. Iniciar a compilação
+
+**Manualmente:**
+
+1. Abra [Actions → Gerar APK Android](https://github.com/LuanOrlandelli/cp5-next-chapter-mobile/actions/workflows/android-apk.yml).
+2. Clique em **Run workflow**, selecione a branch `main` e confirme em **Run workflow**.
+3. Aguarde a execução terminar com o símbolo verde.
+
+**Automaticamente:** commit e push na `main` com alterações nos caminhos de código, assets ou configuração definidos no workflow iniciam outra compilação. Não é necessário criar release. Alterar somente o README ou o guia Supabase não inicia build.
+
+### 3. Entender o que o workflow faz
+
+1. Configura Node.js, Java e Android SDK.
+2. Instala as dependências e executa TypeScript e testes de regras.
+3. Gera o projeto nativo com Expo Prebuild.
+4. Compila o APK release pelo Gradle e verifica a assinatura.
+5. Publica o APK e o arquivo de checksum em **Artifacts**.
+
+O build é destinado à demonstração e usa a assinatura de desenvolvimento do template Expo. Publicação na Play Store exige assinatura própria. Falha em uma execução permanece no histórico; a versão corrigida aparece como uma nova execução.
+
+## Como baixar e instalar o APK
+
+### 1. Baixar pelo GitHub
+
+1. Entre na sua conta do GitHub e abra [Actions → Gerar APK Android](https://github.com/LuanOrlandelli/cp5-next-chapter-mobile/actions/workflows/android-apk.yml).
+2. Escolha a **execução mais recente concluída com sucesso**, marcada em verde. Se a versão mais recente ainda estiver rodando, espere terminar para obter as alterações novas.
+3. Abra **Summary** e role até **Artifacts**, no final da página.
+4. Clique em **next-chapter-android-apk** para baixar o **ZIP**.
+
+É necessário estar conectado ao GitHub para baixar artifacts. Eles ficam disponíveis por **30 dias**. Para obter outro arquivo após a expiração, gere um novo build. Não precisa criar release ou repetir uma execução para baixar um artifact ainda disponível.
+
+### 2. Extrair o arquivo
+
+Extraia o ZIP. Dentro dele estarão:
+
+```text
+next-chapter.apk    Aplicativo para instalar no Android
+SHA256SUMS.txt      Referência para verificar a integridade do arquivo
+```
+
+O ZIP não é o aplicativo: instale o **APK extraído**.
+
+### 3. Instalar no Android
+
+1. Se baixou no computador, envie `next-chapter.apk` para o celular, por USB ou outro meio.
+2. Abra o APK no celular.
+3. Se solicitado pelo Android, permita a instalação por essa origem.
+4. Toque em **Instalar** e depois abra **Next Chapter** na lista de aplicativos.
+
+Não precisa Expo Go, Android Studio ou servidor Metro. O modo Supabase precisa de internet. O APK não é instalável no iPhone.
+
+### 4. Atualizar uma instalação existente
+
+O aplicativo não recebe mudanças automaticamente. Baixe e instale o APK da nova execução verde. Se o Android impedir a atualização por assinatura diferente, pode ser necessário desinstalar a versão anterior; isso remove a sessão e os dados locais. Não desinstale apenas para recuperar histórico.
 
 ## Arquitetura e bibliotecas
 
@@ -217,7 +303,7 @@ npm run build:web
 
 Os testes de interface usam dados locais e porta isolada, normalmente 8082, configurável por `E2E_PORT`. Os testes SQL usam estruturas mínimas de Auth/Storage; a conexão remota foi verificada separadamente. `test:supabase` cria duas sessões e registros fictícios em um projeto de teste, que permanecem no banco.
 
-Evidências: [galeria de testes com prints e vídeos](docs/evidence/index.html) e [resultado da integração Supabase](docs/evidence/12-supabase-integration.txt). A validação foi realizada no Windows/Chromium; Android e iOS não são declarados como testados.
+Evidências: [galeria de testes com prints e vídeos](docs/evidence/index.html) e [resultado da integração Supabase](docs/evidence/12-supabase-integration.txt). As suítes de interface foram executadas no Windows/Chromium. Em 25/10/2026, a compilação Android pelo GitHub Actions foi concluída e o usuário apresentou a execução do APK no celular; isso não equivale à execução de toda a suíte em Android. iOS não foi validado.
 
 ### Roteiro manual de apresentação e teste
 
@@ -262,6 +348,23 @@ Os 15 prints estão em `assets/evidencias/`. As capturas aparecem diretamente ab
 
 O formulário foi capturado antes do preenchimento e o checkout antes da compra, com crédito desativado. Os vídeos automatizados complementam esses prints. O Storage mostra quatro fotos de outro envio de teste; Perfil, detalhe de venda e tabela `sales` mostram a Prada apresentada.
 
+## Identidade visual
+
+Next Chapter representa o próximo capítulo de uma peça com outra pessoa. A tipografia implementada é **Inter**, nos pesos 400, 500, 700 e 900, empacotada no app. O logo em SVG foi reconstruído a partir das telas de referência. As seis telas do Figma orientaram a identidade; Perfil, Checkout e detalhes de venda/troca complementam os fluxos.
+
+| Cor | Código | Aplicação |
+| --- | --- | --- |
+| Oliva | `#4B4D34` | Splash e cabeçalho |
+| Rosa | `#E58DB3` | Botões e cards |
+| Rosa claro | `#FFC5F1` | Símbolo da marca |
+| Creme | `#F4E6DA` | Fundo das telas |
+| Marrom | `#4B342B` | Texto e cabeçalhos |
+| Areia | `#ACA077` | Elementos secundários |
+| Rosa antigo | `#C67D97` | Trade-in |
+| Verde | `#778653` | Selos e crédito |
+| Rosa escuro | `#C6537D` | Preços |
+| Branco | `#FFFFFF` | Fotos e campos |
+
 ## Fontes das fotos
 
 As seis fotos são ilustrativas, empacotadas em `assets/products/`, sem links externos em tempo de execução. As versões `*-standard.png` foram editadas com IA para padronizar fundo branco, enquadramento e margens; os JPG originais foram preservados. As imagens não comprovam autenticidade ou conservação. Os direitos pertencem aos respectivos titulares; não há vínculo comercial com as marcas.
@@ -275,17 +378,16 @@ As seis fotos são ilustrativas, empacotadas em `assets/products/`, sem links ex
 | Louis Vuitton Speedy 30 | [Fashionphile](https://www.fashionphile.com/products/louis-vuitton-monogram-speedy-30-571759) |
 | Michael Kors Selma | [SPERA.de](https://www.spera.de), via [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Michael_Kors_Selma_LG_TZ_Satchel_Handtasche_30T3MLMS7T_Kalbsleder_schwarz_-_grau_black_-_pearl_grey_(1)_(16399888809).jpg), [CC BY 2.0](https://creativecommons.org/licenses/by/2.0/); fundo e enquadramento alterados com IA |
 
-## Entrega CP4 e CP5
+## Organização da entrega
 
-| Requisito | Local nesta entrega |
+| Material | Local |
 | --- | --- |
-| Problema, público, proposta, pitch e negócio | Proposta do aplicativo |
-| Marca, logo, cores e tipografia | Identidade visual, Splash e Figma |
-| Repositório e estrutura inicial | GitHub público e arquitetura |
-| Protótipo com dados mockados | Dez telas e fluxos de compra, venda e troca |
-| Ambiente de teste | Comandos, resultados e roteiro manual |
-| Documentação de navegação e decisões técnicas | Este README |
-| Integração de banco | Supabase, SQL e evidências |
-| Simulação no navegador | Prints, vídeo da apresentação e galeria de testes |
+| Apresentação, funcionalidades e decisões técnicas | Este README |
+| Configuração detalhada do banco | [GUIA-SUPABASE.md](GUIA-SUPABASE.md) |
+| Código do aplicativo | `App.tsx` e `src/` |
+| Banco e dados de demonstração | `supabase/schema.sql` e `supabase/seed.sql` |
+| Prints da apresentação | `assets/evidencias/` |
+| Evidências de testes | `docs/evidence/` |
+| Geração do APK — CP6 | [Workflow Android](.github/workflows/android-apk.yml) e artifacts das execuções verdes |
 
-A documentação de apresentação está concentrada neste README. O [guia de conexão com Supabase](GUIA-SUPABASE.md) complementa a configuração prática. Código, imagens, SQL, testes e evidências permanecem no repositório.
+Os requisitos CP4/CP5 estão relacionados nas seções de proposta, identidade, funcionalidades, arquitetura, Supabase, testes e evidências. A evolução CP6 documenta a distribuição Android realizada até aqui.
