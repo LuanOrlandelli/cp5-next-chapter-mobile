@@ -102,6 +102,19 @@ Sem variáveis Supabase, o app usa catálogo JSON e AsyncStorage. Use o mesmo na
 
 Para emulador Android: iniciar um AVD no Android Studio e executar `npm run android`. Para Expo Go compatível com SDK 57: executar `npm start` e ler o QR Code, com celular e computador na mesma rede. A simulação comprovada nesta entrega foi feita no navegador Windows.
 
+## Gerar e instalar o APK Android
+
+O workflow [Gerar APK Android](https://github.com/LuanOrlandelli/cp5-next-chapter-mobile/actions/workflows/android-apk.yml) compila o aplicativo no GitHub Actions, sem conta Expo/EAS. Ele executa automaticamente quando o código é atualizado na branch `main` e também pode ser iniciado manualmente:
+
+1. No GitHub, abra **Actions → Gerar APK Android → Run workflow → Run workflow**.
+2. Aguarde a execução ficar verde e abra seus detalhes.
+3. Em **Artifacts**, baixe **next-chapter-android-apk** (é necessário estar conectado ao GitHub para baixar artifacts).
+4. Extraia o ZIP e instale `next-chapter.apk` no Android, permitindo instalação dessa origem quando solicitado.
+
+O APK inclui o JavaScript e funciona sem Expo Go ou computador ligado. Sem configuração adicional, usa dados locais. Para compilar conectado ao Supabase, abra **Settings → Secrets and variables → Actions → Variables** e crie as duas **Repository variables** `EXPO_PUBLIC_SUPABASE_URL` e `EXPO_PUBLIC_SUPABASE_ANON_KEY`, com os mesmos valores públicos usados no `.env`. Depois execute o workflow novamente. O `.env` do computador não é enviado ao GitHub. As variáveis públicas serão incorporadas ao APK; não use senha do banco ou chave secreta.
+
+O arquivo é um build release de demonstração, assinado com a chave de desenvolvimento do template Expo; publicação na Play Store exige assinatura própria. Os artifacts ficam disponíveis por 30 dias. Novos builds podem exigir desinstalar uma versão anterior caso a assinatura seja diferente; desinstalar remove a sessão e os dados locais.
+
 ## Integração com Supabase
 
 Para configurar com instruções detalhadas e resolver dúvidas, consulte o [passo a passo de conexão com Supabase](GUIA-SUPABASE.md).
