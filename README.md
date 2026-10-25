@@ -104,12 +104,24 @@ Para emulador Android: iniciar um AVD no Android Studio e executar `npm run andr
 
 ## Gerar e instalar o APK Android
 
-O workflow [Gerar APK Android](https://github.com/LuanOrlandelli/cp5-next-chapter-mobile/actions/workflows/android-apk.yml) compila o aplicativo no GitHub Actions, sem conta Expo/EAS. Ele executa automaticamente quando o código é atualizado na branch `main` e também pode ser iniciado manualmente:
+### Baixar e instalar no celular
 
-1. No GitHub, abra **Actions → Gerar APK Android → Run workflow → Run workflow**.
-2. Aguarde a execução ficar verde e abra seus detalhes.
-3. Em **Artifacts**, baixe **next-chapter-android-apk** (é necessário estar conectado ao GitHub para baixar artifacts).
-4. Extraia o ZIP e instale `next-chapter.apk` no Android, permitindo instalação dessa origem quando solicitado.
+1. Entre na sua conta do GitHub e abra [Actions → Gerar APK Android](https://github.com/LuanOrlandelli/cp5-next-chapter-mobile/actions/workflows/android-apk.yml).
+2. Na lista de execuções, abra a **mais recente concluída com sucesso**, identificada pelo símbolo verde. Se a versão mais recente estiver em andamento, aguarde sua conclusão para baixar o aplicativo atualizado.
+3. Na página da execução, abra **Summary** e role até **Artifacts**, no final da página.
+4. Clique em **next-chapter-android-apk**. O download será um arquivo **`.zip`**; isso é esperado.
+5. Extraia o ZIP. Dentro dele estará **`next-chapter.apk`**; o arquivo `SHA256SUMS.txt` é apenas a referência de verificação do download.
+6. Se baixou pelo computador, envie o **APK extraído** para o celular Android, por cabo USB ou outro meio de sua preferência.
+7. No celular, abra `next-chapter.apk`. Se o Android solicitar, permita a instalação por essa origem e toque em **Instalar**.
+8. Abra **Next Chapter** na lista de aplicativos. Não é necessário Expo Go, Android Studio ou servidor no computador.
+
+É necessário estar conectado ao GitHub para baixar os artifacts. Uma execução vermelha não possui um APK válido dessa compilação; escolha a execução verde. Os arquivos ficam disponíveis por **30 dias**. Não é preciso criar uma release nem iniciar outro build para baixar um APK já disponível.
+
+### Gerar uma nova versão
+
+O workflow compila no GitHub Actions, sem conta Expo/EAS. Ele executa automaticamente após push na `main` com alterações no código, assets ou configuração do build. Alterações somente no README ou em outros arquivos `.md` não iniciam uma nova execução.
+
+Para iniciar manualmente, abra **Actions → Gerar APK Android → Run workflow**, selecione `main` e confirme em **Run workflow**. Aguarde o símbolo verde e siga as instruções de download acima. Para receber mudanças no aplicativo instalado, baixe e instale o novo APK; ele não se atualiza automaticamente.
 
 O APK inclui o JavaScript e funciona sem Expo Go ou computador ligado. Sem configuração adicional, usa dados locais. Para compilar conectado ao Supabase, abra **Settings → Secrets and variables → Actions → Variables** e crie as duas **Repository variables** `EXPO_PUBLIC_SUPABASE_URL` e `EXPO_PUBLIC_SUPABASE_ANON_KEY`, com os mesmos valores públicos usados no `.env`. Depois execute o workflow novamente. O `.env` do computador não é enviado ao GitHub. As variáveis públicas serão incorporadas ao APK; não use senha do banco ou chave secreta.
 
